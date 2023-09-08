@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unique Link Store</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("bg.jpg");
+    background-color: #000; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    animation: backgroundAnimation 60s linear infinite;
+}
+
+header {
+    background-color: transparent;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+.navbar {
+    background-color: transparent;
+    text-align: center;
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.container {
+    max-width: 800px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background: linear-gradient(#f4fdff,#1c448e,#938ba1);
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.link-list {
+    list-style: none;
+    padding: 0;
+}
+
+.link-item {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: linear-gradient(#e0b0ff,#76b2d2,#483d3f);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.link-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(white,white);
+
+}
+
+.link-item a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 20px;
+}
+/* styles.css */
+footer {
+    background-color: transparent; /* Background color for the footer */
+    color: #fff; /* Text color */
+    padding: 20px; /* Add some spacing inside the footer */
+    text-align: center; /* Center-align the text */
+}
+
+/* Style the copyright text */
+footer p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Adjust the font size */
+}
+
+/* Optionally, you can style links within the footer */
+footer a {
+    color: #fff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+
+
+@keyframes backgroundAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    33.3% {
+        transform: translate(20%, 0);
+    }
+    66.6%{
+        transform: translate(-20%,0);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .nav-list li {
+        margin-right: 10px;
+    }
+}
+
+/* Tablet View */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .nav-list li {
+        margin-right: 15px;
+    }
+}
+
+/* TV View (Larger Screens) */
+@media screen and (min-width: 1200px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .nav-list li {
+        margin-right: 25px;
+    }
+}
+
+
+</style></head>
+<body>
+    <header>
+        <h1>Unique Link Store</h1>
+    </header>
+
+    <div class="container">
+        <h2>Twitter</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://blackmagic.so/real-time-banner/" ADD_DATE="1631120489" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABFklEQVQ4jZWSsZGEMAxFv/BGMDh1CJGroAb3RkALroMQKIHI1AGWLhDr27lNDkWeP9/W17NIREQEAABmJqKqqvAuZhaRohDRS0SISESY2RgDIKV0HAeAruv6vgeQc66qSm1Q63VdIrIsSwjBWqvvWWtDCMuyiMh1XdoNxR1jbJoGX9U0TYyx3MF5nsy8rmtd1wCMMURkjCkHAHVdr+vKzOd5IufMzCEEdX93UDGEwMw5Z4hISqltWwBKYxiGaZqmaRqGoYht26aU7hnmeS7UAHjvlbX3vogA5nlm5tdnd0W87/s4jgD2fb9R/jGVSKWcc865T+U30uOhFeu2bQWr5tboBeu2bTfWxx/3dDVIN/T/y0dP1/sHg64pbxhbKGQAAAAASUVORK5CYII=">Twitter Real-time Banner - BlackMagic.so</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://poet.so/" ADD_DATE="1631120489" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC00lEQVQ4jV2TzWtcZRjFf8/zvvfO3Nw0c9v4kURrJq0Gi5uGbuxACARFcO2qW8tsg3+AW/dZGrMuUkqxi6IVCUigCLYECi2ioim21eLU+bozc79fF6Ml6VmdxcMPznk4wgu60e2u5aLtImOzzGlKKdSQQx/dMxU7HzbDg6P38r+56lzg4v72s7y8/Psok864JJ8IJhPC0rBgLSuh7+Z9uxvV6lut0zJ5DrjqXJDFvVs/Zen6/XHKcFyRjUEmijdR6plhtlJOGcO5yOdM5O2fDIMPWqdlYgGKYX/7QZqt350kdNKSFfVo1CzGKQYhLuBpt6QQwY1zNJd1WyXbQFuudbtrj/Lq7rfxSB5nOf2k4ovlRd6LwmPdPOwVfHqzT5E6Fmct767U3KuhvaBJYds/DwrpxI7eUBgPBVdMq/m1m3P7YcowqViOLB9fmCXpKaMePP6rkiynrXnK5pNBxWigJD2l6FlcPgV8dS/hkysDPrs+AuDcggd9pegrvQ64jE2bpdIcj5Q8NpQjoRoJ/AdY8j3Oz8HGmzUA+j2HGRjUCWVNKFKallKQiYEYGCgMFXIF4NLFOpcu1p/38PWtEi82WCPYZPpi6zs9DAqz6idgR1ANFYop4NFTx98dx7AP+99XHNxxhDOGWiAEDjzRQ+s52XvNN6t/lhBnQpUapJxG+PKbius3HDM5BE6YsQa/gkBgflbwRfe0bnRntWHdS9YSqSV004wAzgmFUyoUVLBWCWpKGChLi+JU2dGP3vIPXgns7vmXLQuBYb6mfHfP8flNx4M/wKsLdkaoh0LYEOZOCstnhROR7rY25MACmIa39U7K25qyfj+HO7/AD7FDJ0IjEkIg8uFUCGfPwOtvsG8Cto6P6bYLnF9t/9Pl8m9PkGcdoZgIXgknLCxGsLKEm59jNwjYarWOjOmorv3o1shpFzmbZUpTHQSWQ9+y58HO+xtybM7/Aho5NpBfgZyQAAAAAElFTkSuQmCC">Create Beautiful Images of Twitter Posts</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://app.tweethunter.io/onboardnew" ADD_DATE="1631120489" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADdklEQVQ4jWXTX0xbdRQH8O/53XsrXdu1RfpnEyIpazUTFpghSwySWeMW5vaiDzJkw2zUf5l/osYXY2T6ZqIvcwuR/YPQLdkSZ2SCI4rGETf5M6RZGS2lEsAxQNdC7wptb+/xAR6mO0/n5XxfvudDAMDMRES8tud2Xe7pOxibiD89v7CwGQBcTsftsi2e/n17nm0nUnrvvyGsD7PqGhiMfnKmvTMwGgrLyWQSus4MAEIIstmsqKqs0F5permt+knvUSLzPAAQAGJOObou958/dqLNH49P6RaLWRdCEkSgtXBwPq/pC4uLwuf1ig/eO9K3d89T+4ksi4KZpWvXxo4eO3HSPz09kyksLIQkSRLAxMygtQiSZVna9Zwf5g3GzBdffuW/PhhpYWZJAKjtCF4IxON/aiaTRVFVlf7+5y7S6TTS6RVKLi3T3J15NB9qxNmTx4V7k1sZj0xoweCFAKDVyj1XfjwcuhmWZFnSHn+sjN59+w3Mzd1BcfFmkmWFh4ZH8M23XeR0Ovj0mU4eDd0kp7MIwzdG5Z4rvxyWo9FYTeJukk2mDSISiSGRSMDlclDnuYuc1zSqf+kFBNtbueHA6/THaIjdbhdkWRGJRJKj0ckaqbJqx+djt8ZFQUEBZTJZfN/dC1mScP33QYpMTKKo6GEQEdlsVr4xEoLR+BAAUCabQUlxsUkGAUSArjMMBgWKLOPSd914rfkgyp/Yivc//Bjx+BSaDtSDiKAzY70cAIBwu5xzRAJExNlsFquZVRQ/sonMZgvHJuOw26wQQuLMaoaYdRADYLAgAbfbMSf7fGX9dru9QVVTeYvFLH3W8hG2V23j+sZmmp39ixvqX4T/mVqKTsQ5m82BhEAul9Ptdpvs823pF3W7d57aXlWhLS2nYLVa2ev1YGh4BNMzs2wwGKjz3EVSVZU9nkdhNBZAkGD13j1UbivP1+3eeUpqafl0xma1ucZuRXaEw2PZgYEh8UNvH2k5DYqigJnx86+/YWpqGkvLKqfUVK60tNTwzpFXvy4pKWm975Wvnj/eeto/Ph7VN1o36gbFIJh1EkIgn8/zysqKnstpwuMpFW+9Gejbt7dmP5Fl8QFMZzuCgdFQWE4kEuuYGJIkkd1uQ0X5Vu1QU2NbdbXvP5ge4NzV/VPTZCxeM7+wuM7Zedvr9Vx9vs7f8X/O/wJrvafYM3zXKgAAAABJRU5ErkJggg==">Tweet Hunter 🏹</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://whattotweet.com/#" ADD_DATE="1631120489">What to Tweet?</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://twittrgems.upskillindia.org/" ADD_DATE="1631120489" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC0ElEQVQ4jYWTTWicVRiFn/feO/PNTzIztqlJS02mUUqXQhDRFEmpCq0U3YmgdFMqCBWKC+2mO6m4daGgiyKKiODPIiBoMw1FSZ3WWLWI9Cdpk4ZkmnQmZMz8fN+9r5tEIig963MOZ/Ec+LeE+8v8X0AABRgYfvq5gBwywh5Qo0FvC3y3OHPuGyDe6pWt4b7h/XsdmQ+scwcQQYNHjAAG9YEQQjWJ49eW585f2lgSZDO8Y/fYIzZy31vrhtbqjVi9x2TSJnS6KqBRPksqk02FJNTjbnJoZb5yEZCNghHXP1ysiLjRZr3efeL5g6l9z4zy8O6dXL1+i5nqb9yYmubencU4Vyymg/fXluqNx6hfXhWA7eWxFyIXfdVq/RW/fOIVd+zN49LY2FgHPLC0UNNP3zjD75MX42xvMR23W6/fvT35ngFwxh5BJITE0//4CEWUz//ocPJy0K9nvF5ZTujZ+aDsf/8dckMPGd9qBZuODgNYQHq27TkpxpS10+bqzXkKRw7zxS3HwrrItYaRak007bu0dkUSr8XUJi6Iy+dCc0U+dACixqr3pHp7aV76hS/HLzD05JjsWEloBoN2YTEXSbs6FxbPT+FyWYL3lnIiBlBF58EoogHrpHb2EzIhJnKigwXDaNnIn599q9MvHZe1qZ/URBlEdYHZ2Y4B8JpMCBj1Hteb5970ryyfm9DsLiuuWWf8rbe18e5psn4dVyh4FAGtAGoB1s3A9XyUelFE+kSI1XvbWaqR6evnyqnTtKs/aLpUMkGMR9Uqutptd15tr82t/gPS9sEDB9Op1Liqj4CuhmBDHIugmGxOCd4DaRGLD8nR2kzlY8DYTZRbq7M3s4XBn421T4mx2xAxNuVEUmkhqDHGWZCVJOmcuDs7eXYryltfFvLlsYEea44ZzLOKllEVsHcUX9G4/VFt7scbm977XVV4YKRYKj1a2uDlP+/8NxSWSuYiE6LmAAAAAElFTkSuQmCC">All Resources</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.growthtweets.link/" ADD_DATE="1631120489" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADFklEQVQ4jYVSXWgUZxQ995vZ7ewk7sbNj9kkrtvdbqxEqQbBWFFaCNhi+9AWpC8hIEWhFUoptBShDqUWpC99EC1FofStglBQFLEg9UHUYNS2WrFpbMxm1zW7m0zWmZ2dme+7fUgarAg9D/fh3nMu514O8ASYQQDQ5A0b7l948dzXe9P7lkb0LB4ACPwXtFhyH2bWr3xt9Sr/22OfZC0AbDEEloRE4GcuIIK6aEHXkNiCaI9KJck3ngsOHv4g/ZlFUCDw9Mm+GD/MdRVPwwQA/Slb5My2dDBkJrCbIm4aIhcNZD4lv3r8e35rS1fUUCHlwNH2uYW1lVNfhKM6ALC16IQIKgi68lpQap2/V5W5NAlD00G5DqVnE2+i6kHMV1EpCLBsTazLzCUWhRYUERQ7na/rev9Rt6Zxa0vIerINHx3X8fFBGwt3W0LYJOfvusHMA1JK+tfZmPxZAID/V2ozNwYvwBw6e+N6fP3onjKfudwUQUgY3iTpvZ1pqt3qFvVCjSZnW4kiQqiw8c3AbviCeePLkc61l2CnhlFPK/mrCt/dbNPwoIl4CqI31YYfLlaw5qUJ+vuOp5wwpnueO3Z1bOJHAKQDsqaKj4uiWMmxWeLB7lWYLK7AgRMO+teY6sq4i/dHuolqVUQ0gCWhPOdW9n2HYPFtAAqHY33RntWHEu00Eo37hEwef0wn+PbZa9j4PPELO9JClmpcn57jO9UkHi24Ukln2zufPxwTzKC+TxuFrpF7o80atsM0xlWsrNatnKW3hgQiJCCnSkwqVIahocPwZNuKeIRA+5eTxwCBoREh5Hr2bQ5jp3jCDH+78kjYjQgGeoBkXBOex6jYgSp4cVTr7jw3pzfpS1uYAckWROD4MxERC31PaWWbVENCjE8x9SbUNU3jXgWt0xRuNDBEVHF7cjnKRGCyoALNe4Ca35ydspXjCWFGQM1Q7R3Y/+fQLzeqA+V6uMVx5RtoejtePTBzE0/DYojwUv7y7WP9fP7LnHP+UHbP8pn/h39Jpe+zu24d6f/pnJV55cmoA4BlQbAFYS31/gGLmG+xXdsnlwAAAABJRU5ErkJggg==">Collection of Growth Based Tweets by top Twitter accounts | Growth Tweets</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Crack</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://crackshash.com/" ADD_DATE="1631120506" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACw0lEQVQ4jX2TT2icZRDGfzPf+2437cas2artpnVb0upC0GAUcyjCsgdBWvWkBw+SCg0KesihiIdI6F1zKNIQFD14sHgQEaxtISzEg4eSVio2FmpYKiptYnB32ST7fd+8HrbGrRUfGGYO849n5hH+hWOv/TSaTcJkJk2qPoRSxgJRsLpLw4KknfnTX4x/35svfweViZWsdza7w2zSmak34x8LXR+CeUvn+9cKUzO1g5vbDSoTK9k4y7mMhco9Rfc0MbxZrX+t8NxM7eCmAvyZ87OJaiVWoVj0PPF4H/mCI1btMel6UWLVSrOwNgsgj7z1y2hGZKmUR6df7qO83wEwd7bB4nft/9kkWEg6Y9HAkZPv7vDy9NyJnRQHlY/Pb/Lp+TbX6wn9u5TpNwdZbxq/3UoZGcly/MQDLF/bZKNtIhKZSzSqPjMi7Csopz7foHalc2eS8GjZUxry/NEKxKocGM6yp+hZbRiiShCruk6kpUN7lSSFCz+miCoATx6OmDjWB8ArL95HkhhDDzlCgGeP5vn6y3XEtOQSEeLQvWYcKWIGKPl8xEBO2dgKpALqlFwuotlKWW8ZsSpgaEelfulXcBFUR9w2419dTrjdMK7ciDl5psGpjxqowIXFNt8sbty5iNRdorpw8edQvvp7YPqo5/6dwuWVFGfG/t0R126mDO31DD8oiEC7A+aEOFECsiD+7fVR73SpuMv0g+eV8Ye3n/M/kaSBV9+5jcbBwMYEwE83z3iz130wHtsdODQIR0rCS2MR75/botE0XnjKUy5GvHe2xdIPWzgLcxc/HH7DdcnLTRFaZaByddVYvmXs6RdurBqfXUrRxBg/7Gi2E75dTnAqtdCRqbvExEzI+rQ1680mfeiKyVkg0/OFzoJ5C/MDrXiq9kmPmHrR5UQmnVk1Y6HkQiCTWt1ZuuCSdP766X13yfkvN25mnOfgw2QAAAAASUVORK5CYII=">crackhash</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://free4pc.org/" ADD_DATE="1631120506" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACKklEQVQ4jV2SS2iTQRDHZ2ZT8yitIF9a42dJKT0I8eDzID1IqoJaGlGKrQ+E3orxICK0VhE8+ThJ68GDgrU+QW8WDFKtScWUVqTExjT05Km0YiJtTL4ku+Nh89K5LDsz/93/zv6QmQGAmRFRKSZCvVVKEREi6gZEBAAAIL3oLACPjoyEJt4gohBCKaWUQkQt0z0lgT6AC9b88u+b774OXxmKx+aFEEQkpdT3a5kNaoKlbDC9LfvPLcx9uHxv7PA281Rfn9tjAoCUUjukWgEiqrylspanw980cDvEW4M37jx9/MjK5YQQ2nlVwMzATCQYoLAuieq8x3pb+4dfLaWDg9ein6b/EWiXDJDL5YTDLjYIKBYzaVnc2By4cLGxq//q6IPF+ELJUnmmiuyOdhevhp5nMhlRb7MRrGZkYiW/Y6fPabb9WV8rCbAcgHQpODC4q6nx7f1fcxFyCYdTLFsimZIkC0hUsqRnjIhEhCT8nQdunT/bHptI3h3K/EjaXGIFhCWZABDRVrGUy2afvXiZWEyc7OmxO51Gk7shNrn28Hp+90Hq6AZbHQADQPUfCsXiz1QqOvtlJho9dOTovr17DMPd1urdVO8cm3odWfqmqAsAsJYlAIh/T4w/GZ8KR1pMs9PvDwS6t3g8XLAmw9M+33bP5ubSAzRtmgJmfv8x3Hv6TOD4ic8zs1JKqSpdXKVKo1KBNJVKS1k0DENXK3kscwr/ySoslLgsV/8C0R1HHW9xcUUAAAAASUVORK5CYII=">Free4PC</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="container">
+        <h2>Creative post</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://icons8.com/icons/set/instagram-save--red" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACUUlEQVQ4jZWTMYyUZRCGn5nv+9m93fMQIURyeKeBXGVBQoElGEgwsTAECLGyM7EwFnTUdBRU1FQ0JEIhiYmJkQQKCjrU5CBXgBFjiJHN3u6//t83r8UeZ9Sz8K2mmZm87zxjy7ePn8270mV1cQjkAIYZO0hI88qqNb5R/qiXcoYrOKtSRPJEwu2vBqiqJHMMoyosCEnh5r6W4EqW2TJtRHK3zW5q02hlwgS4Gbub1xh1Y7ooLDYD9b1nYYHaCLC3skF2M8bdlPffPKb39h6x+dbEtLZc37jFRwdP8vZwmTs/37XvR4+14H0LCwOUheSWbLNOdGL/Mfv08IVtzzUqh4YrnF/9AIBP3jnD2fuf24+jJ+p530TghpkkHLdxmdJFYVJauiiEgnMrpylRmZaWN3q7+fDAccbdxLZysXnqW6EncxrPNJ5oPDOLjl/aF2RPNN4A8HTynGwZbR3Edz7XXLOY8cXDyzz6fR3HuLZ+gy9/+oalZpGq+O8B/0c7DngFQs97XD16iXdfXyMQn619zJmDpxh1Y9LcPRnY9lMVdFHoogJGzxuG/X2UqHTRkT2xMjhAUZnnJnAhmRlBaDEv0HhmkPs0nnFzbj79muyJhdznt9lLvnr+HYvNQFWBkDJAKBimgX376wNNSmuhwM1pY8b1jVvce/HwFUj8MHoyB4nAMLOV2ycqgDu22bU7ojwuk7+jTAiZMCKDnlk/rda2xLBZYInhv55pz66lfzyT5P3ktPWZV7hIsG7mEQo6FRVViipVdTvcokoQAjBzEVovcPFP+N4/ndS59YMAAAAASUVORK5CYII=">Instagram save Red Icons – Free Download SVG, PNG, GIF</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.iconfinder.com/icons/2180667/flag_save_tag_icon" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaklEQVQ4jZ3SO2vUQRQF8N9kNQQXNKYImA2iiIV+AzGVQjqtUmlhYxdU7LWLX8DSB1qIjZA+sQuCCLYRkyIQMdlCTXytGoMZi//dZbJstsht5s7MfZxz7mVvqxX+QJ+4vjaO4/tNvo1f2MIdDPcKOtB1H8AOHuI65vAWQxjFt4jL7YSSZ4qPe7iFrziMs+F/x+JecFOcZ9BKKWXklFIufdwP1B1RuylM41DOuYnFnPM6/mE453wONyLuZoG4YzW8wiOMxdtlLGNSNZHHodGF+N813iNYCP9gdHseXUrumypxS+rGcB7v0IgCHyI543UgPBEIvuBoG7aAeAm/cREvMB+w34c2n/EgCtbxEh/bCK6ghRls4AlOqkSu4RRm8QN3VcJOlPxPYwl/0IwuO1jFWty3MYU3WMGxksIGnkZQA/WU0qBqff/iGa6qFmsL14JSR8XumY5jBD/xKaDDYBTsacnu1S6tVjQrff8B2nBde7aPVM8AAAAASUVORK5CYII=">Flag, save, tag icon - Free download on Iconfinder</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://icons8.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACVElEQVQ4jXWTP4iUVxTFf/e+9zmzM+uaaAgxmtkEEysLwUJLDQkkkELEBLFKJ1iEFHbWdhaprK1sAsYiQkAQBRsLO//ARrbQYEIQMevszLd+791jMeuGxPVUr7jvXs65v2ujK4eP2xY/p057QA5gmLGJhDR7WbXGl8vLejYD53FblGokTyTc/v0AVZVkjmFUhQUhKdzc9yY4nzHbpTYiudtqN7VptDJhAtyMbc1WVroxXRTmm4H63rOwQG0E2EfZILsZ427K5x8c1KEd+202NTGtLReXf+Ho7i/4eLiLq09u2r2V3zXnfQsLA5SF5JZstU505P2DdurTExuea1T2DEd8t/g1AN9/cozjt36wBy8equd9E4EbZpJw3MZlSheFSWnpohAKvh19RYnKtLRs723jmw8PM+4mtp6LzVJfDz2Z03im8UTjmbXo+Kt9SvZE4w0AjyZ/ki2j9YX45uuaaS3W+PHOOe4+X8IxLixd4vIf11ho5qmKtzd4U5ti8fYGr8t73uOnA2fZ985nBOL03pMc2/0lK92YNHNPBjb8VAVdFLqogNHzhmH/PUpUuujInhgNdlJUZrkJXEhmRhCaz3M0nhnkPo1n3JyfH/1G9sRc7vNs7R9+fXKD+WagqkBIGSAUDNPArv99W5PSWihwc9p4ycXly9x6euc1SNx/8XAGEoFhZqMrRyqAO7batZuiPC6T/6JMCJkwIoMeWz8t1rbEsJljgeEbx/TuloX/HZPk/eS09bFX6hlCS2YeoaBTUVGlqFJVN8ItqgQhADMXoaUCZ14BX2pBlhswdFsAAAAASUVORK5CYII=">Free Icons, Clipart Illustrations, Photos, and Music</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.invisionapp.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACG0lEQVQ4jVWTS2sUURCFv7rd88o4kSQoqNkoxAhxM+MLdBkQxR/gA9w5LnQfN+I/0HU2Ki40S3dmJ2hAiAjBqFFB4mBEJ0p8BOc9fctFdXcmF5oubt2qOnXqlGi5OoeT8ygKKogIyVFNTZJrVQVRRED9nOiRq5o6kmBVC0j+24/G9wIQWkargarSj4QwgH4EYbAdRfLOkiuAS/E5Udpd4dI0PLwJE+PQ7UEQP3HOPhEdRBtaRgWc0OlCNgNjw+AEmh0QIAig3QGvUMjJQHsiWqkmHMDuESgVIAzhyzrsGQPvoVaHA3shl4G3q+aPgYeIQBRBMQ+3r8HkODx7DS/ewY2L8OcfPF+GM8ehkINb9+DxAhQLoIpD1Xpr9+D+vGXfbML8Iiy8MVSfv8PMrKE5eyIdBqoYlsBZpb8Na+Xle1j7ASM7rJW7T2C0BJGHX5tbkxHBGSGxUE5OmXPpE+zbBVP7YXkVmm04dRjyWXi6BJ1eqhNrwXsj6Ngh+PoT6htw+bTdLa5Y5aOT0O2bPq6cM1uIEYjYiGp1Y/7OdZguW+DHNRvttw3IhjBzARpt04gIopWqRxD6XtlZFMoTsP4bGi0YHYaVGvQiC64chFZXefUB8hlBUUtghAhRpLS6JmUnhiCf3ULY6pg9lEulHA4skBIEwvCQkWqqt0BVS1gqgKJ4ny6Tw/tHKB5ijUfeSPXeEAxuZuJDFMTj/YP/teUCVtCY1DMAAAAASUVORK5CYII=">app layout</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.uplabs.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACIUlEQVQ4jU2SPWhUURCFZ+beu7tZwypJxIUgLBoRxA0oWChIQFFILEKEFFoLYmMvCNrbiIXYWAhCwMbSNJaCWCQpFBKjiGmD+TGbfbvv3XuOxduozTDMHOYwnE/n26vJWwouBYveUrDkXQqWvMVgKRj8/yszhSippIBGGqikgkoaxEAFBSwbBc0AhehgJHIgUki5GlwBDWIUE/mnUNDIgwqhGMlEI40ipZWlgVoSSlNJlESDoGDeQzDmPSLCCS3RG9nvo9mq3H3cfPlsa3mlf//h0W7U9W/F1ev13Q4nz4TltfRkob9f0Cq00nSopu0L9UbDUsHTp8PECT96xKYu1r6sFq/fZnNXKjcuhawLp+KV5Q+S58j2Urabuh3mSbzJ2vf81UInBjc/U2ufdERhgBfAq+39iipyba5Rqbv2+driu/1+htbxcGu23oOeavnFj73yrjvXuGdBf++in8vlmcbU9PDGj+LF0+3WRDg7WRs/Zrdv1pc+F88XepEqTn2Zi1d9/2YnUkfHw8pS7+d6Pj07HCMfPNoeaYaNTXaShiEXQV/mKsqRMdfdiZ091IKMjdqnD9nmFrIOvq4V/pBVq64ANVHvNJeit1RxfdEsagqGqqs0fEbtiVYPe1Zc4SyVLDnzAhoFYAjqhzR5i0EjWKtoCBYhMVJ1QJQ48UYBoFBNRCQFoqqekihGUShVD1giYAOqBvzIIBZS/gKHA7pIhfwBpliJkz29ucMAAAAASUVORK5CYII=">Unlimited UI Kits, Icons, Templates, Themes and More - UpLabs</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://undraw.co/illustrations" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACxUlEQVQ4jX2TTWhUVxiGn3PuzyT3zp2Mmcg01dHElBSmjT8ru9BNRV1IpRTciBRprHVRRNFVVxMqXRVFgglGqVRxo4tuWogRxEVVqosOjH8YRI124l+Nk/m7M3PPPV2MMw2Cvquz+N4H3u/9juAt7R3Wn2rBsNZsFJAE0PAUuChCTo6eErcXzovWI7NN2/96HNaCPYDxNviNlNYca5gcnJgQjTYgs03bL2P8DmwECFSJ/LPfmCvcwLLi9PZsYVF87f8YzYWeIlsz50XdBHjpMdoyV6oz5O7uo64KoDVCCF7N/Unf0l0s7d0OQK0+tznfIUeB78T3O/UQBllAgubvW3uo+PcJwxDXdfD9GkopLNNm6OMxXKefYmkGy4qqTiuxUmKwu2mGcvUhpco0tm0DMDDQRzo9yMBAH6EOePBkgiCo4kWX0xFJGFqy2wQ2tKL5tVkADh8ZIR7vwvOiuK5Do9Egl7vDwQMjVPwHSNGFbXdhW94GCaTaK1ZlAGIxj3R6kFTqQ7q74ySTi/GiLqB5PHse245hWx4alsuFVUppATB27BRKqfbS6/UG4+O/AvB6/i8Mw2zdgJLAo/ZRiGb2q1dvcOXK9TZg+Jv9ZLM3sa0EYVhjvjSN1iEa7ptCMKU1aQDXWUEsOkRfv2Ddus+aldVq5HK3kTLCkuRXFMvThAqU8jEs55KJ4sTTV3/snfnntGwEBXq6V7Hr2x1I2UxmGDZrV59FBQGdnamm0egACIXkuHE9O/Ki94OPviyW7/RqrShX8kxOXuDRw8e4rkM+P0vu1jUK8+B0LEMpn6r/AiGMn8d+iZwTAJs2nXYLry/O+v4T7x1/AICoM8iaT8YRiMlEii8yGRFIgKmpr8tRL9YfiSSfvQ9Qrt6jUMqeaZlZWGFLn6//YWe5NvOjIcyEX3/eCWjbTNRDgqLj9h+6fPmnowvn/wOA8xFaHYBlsgAAAABJRU5ErkJggg==">icon 01</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://freellustrations.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC2UlEQVQ4jVWTv2uVZxzFP+d53vfm3uQGUxClNC1NphpK1kqX0iWjgtG9Y+lQcIk4ZLKLBSn9A7roWgVThxJKN0OHSK0UK9QkRRSxxuTm3vv+fp/n20ET7IHvcuDwhcP5iDcyTEL2+8zOjJuaPlN5W6o7Np8BWa3tYdD6fjZauziYG4AJZAB6ExfIHr33/Lxcd7WULTYuYRyNQlA4MbTAWDzYD+WV1Sfv/niY0eHnx7MvVuR6V2snBnUZxxVWdFAWYdRgY0x12nXlFIx8cena3ye/BZMAtmZ3zzmX3hzTxnERYzODdx859p8Z7TTYCVFEGEfCziPcyBI3TJrlG38ev6Wtd/aOhX7ccL57ai8vgv9MyYnLjumPnW1ebHXyc8fcsoMIu1vG9xfa9qDu+XFS/rWXuU+TdjKeRX7hIOSx7si//7VjatGbVaYG2H1sTNw3LMo270S9GuKbfm6lTxfoh7NJ9LaEUqtDiHWKwztCFuUTCAls/hC493NkHNGglsW+LHeKpU9V+XYpaTo2H+pI6VBlKMQoOYcERWN8spJw6oKIJfz7zPTNl5GiQYWPhAnNJxUQgMqg0FGvyKBxIi+NfChiDb/9YrwaG21flILgIClqbUvudAVWGgbCQGZG6MBP1wJr1yMjYDfHYg8rhVXeUbW27aqg9bE1KoiukqkNUQTMSVhHHNTGoDAGJdZ0UelRqegqNSqi1t1+7m6PCA9Nk8qNkPTF1DGEYS9fGvWEqFJndYpKQeUIdTqpSuHhqHa3BXB9dvdc7dKbB2rjwleKvVn8H79G7t018hQy//oKT8i9c2WSuCo2y0/vHr91NOXvPnixUiW9q4MG9kMZs1TWTKPMQ5ZgmUNl2nWFN4pQXHq68daUD8G4PPf8fDPRXR15FvPEM5SReci9yH1L4fSgsPLKk423YOJIr40vPtyZaXvTZ/KOLdUTNl8kMGi1naP1oh6t/XP//zj/B0F5tErtMvqyAAAAAElFTkSuQmCC">Free illustrations and vector images for website backgrounds and landing pages.</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://freebiesketch.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABxklEQVQ4jV1STasiQQxM0j2Mn/hYZ99JFHERd09P8aA3/4O/2YMXRUQQEcSjiiKiLePMJHuING83h4aEqk5SKWz8+iMiAAAAiJhlmTFGK/+lWiGfAAAzB0Eg3yIIAmb2ABEhRFQqABhj0jRFxDiO4zhGxDRNjTEegIjWd2BmY8zr9QKAr68vAFgsFgBQKBRERAkiYio/fipURB6PR7PZHI1GIhKGYa/Xc84dDgdrre+A9dZv/T6fzw8GgyzLNpvNfr8nolqt1ul0iGg6nTrnjDHMTCJCREqo1+uXy2W73YZhaK3dbrfn87nRaORyOT+5fe9OFMfx6/UaDAatVmsymRDReDwul8vP51MF0E3eBD/i9Xo9nU7D4dBaezwekySpVCoeAACkCTMXCgVEPJ1OURTd7/fb7VatVi+XCyIWi0Vmft/xo/qp7USkVCqlabpcLvP5vHNuvV5HUXS73Xa7XZqmRISI5qP6qU2SJNlsNszc7/ev1yszt9vt1Wo1m810yX9k1amCIHDOMXO320XE+Xyuh9Pv3wZT83kR9IjOOYWq+XSBt0rK05eZrbVZloVh6FN1l4eR1wsAiChJEvwWSZLo9N7efwFo+T3S3/wiSAAAAABJRU5ErkJggg==">Design Resources for UX/UI Designer and Developers</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://freebiesketch.com/all/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABxklEQVQ4jV1STasiQQxM0j2Mn/hYZ99JFHERd09P8aA3/4O/2YMXRUQQEcSjiiKiLePMJHuING83h4aEqk5SKWz8+iMiAAAAiJhlmTFGK/+lWiGfAAAzB0Eg3yIIAmb2ABEhRFQqABhj0jRFxDiO4zhGxDRNjTEegIjWd2BmY8zr9QKAr68vAFgsFgBQKBRERAkiYio/fipURB6PR7PZHI1GIhKGYa/Xc84dDgdrre+A9dZv/T6fzw8GgyzLNpvNfr8nolqt1ul0iGg6nTrnjDHMTCJCREqo1+uXy2W73YZhaK3dbrfn87nRaORyOT+5fe9OFMfx6/UaDAatVmsymRDReDwul8vP51MF0E3eBD/i9Xo9nU7D4dBaezwekySpVCoeAACkCTMXCgVEPJ1OURTd7/fb7VatVi+XCyIWi0Vmft/xo/qp7USkVCqlabpcLvP5vHNuvV5HUXS73Xa7XZqmRISI5qP6qU2SJNlsNszc7/ev1yszt9vt1Wo1m810yX9k1amCIHDOMXO320XE+Xyuh9Pv3wZT83kR9IjOOYWq+XSBt0rK05eZrbVZloVh6FN1l4eR1wsAiChJEvwWSZLo9N7efwFo+T3S3/wiSAAAAABJRU5ErkJggg==">All - Freebiesketch</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://blush.design/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBklEQVQ4jX2TTWhcVRzFz7n3vnmTZJJJk5lUm9jEWtqhpYqIHwQRkQjSRU2kqJQiiLhQwZVuXJiikI3uXLjtulSTRUtdiIKmERUXaW3rRyohjYl9mUSTzsvMvI97XCSCC/EPZ/c/h7P4HQLAB/MLA2Gx8K6kcXg/ANLhv07KYExEcqbdSt57+4GDET+eXxhIQjcddpZG23EDBKSdd/7bS1LyHiBZLJXQjBtzYTubMO3ATe6aUxMEPpcIiSAFQABEUj7PSWtJ5/z21lba0dU92g7cpCE0nqWJl2Q3lxYZWisYK3nP3Rb0eU4XFtWKG9peXWEYhjZpNT2JcQOgYiV+9Pqr/Hpqks/u38usGdNLkPfI8xy0Fo2NOt8/8Qxbn1/g2GCV23fukGTFoLMjWP1jlb2Nv7B865ZOPPYwln68gu49fTDWwjmHzp4yVm5cx33lbpw/d06nn3wCcTOmL4aB6V9eQ7UNnP3qMk+98jIXNjZx16EaVn/+CY16HfH6OpZvXMPQkaO4+P0PGKkdZtRd5sFiD/qWIjA9/aHPLBkdukcXjvUzOVrD/PQnOPvWm7CVPgBEXl/HC2emMPbaG4jnvsPxq5FGFiOyncm5NKVLgf3fXOPz0d24WKvBVit4sfYojrsBkMBnfbcRDA0CG1s4NbuI6sIKFRZAgg7GykNUuQuVxdsYnr2K6OkxDB9+CPcu/wlCCAd7sTjUhwNfXkF1YQVZVweMBIJygHaI8ZSMRX99i2i1sVwOcbOyDwBQSHMgSdC/tgkZKwOCEAHBAUgpBLIAJcalDsgQQZYjyPNdhIFmSMSlDlCeIkQPgUoNhDqskWm2mHZ36pf7RxR4SYbwxsAbsxvo9euxYbXLJZlmi7BGEOvGCzOgM/GenvTSyVFFe3tpk5QwRtwVjJFNM65Vy7x0clSN/p4UdMYLM9TEmYEvnnt8+vdHjoyuBULQSiRDSOA/a9IO06KEtFhgJSOGvr0+99SnsxMEgAe1tu+l35J3XJKNe/3/nA1NlBXczPkDhanLrK78DYAydgo4fFMjAAAAAElFTkSuQmCC">Illustrations for everyone</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.opendoodles.com/" ADD_DATE="1631120514" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTklEQVQ4jY3SP0ucQRAG8N+9dypBBRFEDWKKWFhaWYgiWApWYmdtivsEdmn0O/ghUqRQREFFEes0AQvFf4GURlSiBs/inVc3x93hA8PO7sw8u/vMlDXHCKqYxCWuW+S+ohTrBK5QC7vAeF1OSxxF4d+wGvYbJVaaENzE2pac/XnPzaWwYWzgDrdYx2ASf0VWR1D8eQhnCcEJPiXxllhJEp8Tv4avzYqysLm6gkY2E9/IeBOxCC7E/gbHcuFq6MEourGInVSLwpmX93tHPkQDcUEF/UFwKB+q+aK2HE4HlnCPLXkHZoOwE1M4QB/+oQu7eM7iBY/YRHs8E77JW9eD73HWH/HDICpVvLVlHb/wJZ7djs8Rv4p9L5bxo9Cu+EKhxW98CDG38REPOMUq9poJWCCT974qH5zN0GcK51hLchoSpBjDNJ7i5p+R/98kvgAIK1ioIize5AAAAABJRU5ErkJggg==">Free sketchy illustrations</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://coverr.co/" ADD_DATE="1656841653">Free Stock Video Footage, Royalty Free Videos for Download</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://lumen5.com/" ADD_DATE="1656841674">data to Video Maker</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>Mine</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://www.nicehash.com/my/mining/rigs" ADD_DATE="1630117168" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACgklEQVQ4jZWTT0hUURTGv/veo9HRVAbDEWTQsMSGSBwsEFo4UBAIQatBFy0ya5OLaNHUohaFRBLSRhhHKBdB64x2WkNJPBh9WjbolKmI/xbje+OfnDf33tPiyTiTuOjAhcs53/1x77nfYfgnAo3lzV3t1d1tAU/Q53XVAsDSWmZhLJ4ajY6sRuIJayJfz/L27kjY//L6laobSkUTmKcVrLgGAEB/lkGpcUjTwPCH9aGbvTM9AHbzQe6PAy0xWw+RMA06KoRpkK2H6NNASwyAO3d6MOyP2nqI5N4Gya1ZktvzJPle7qCUWSe3lSS5t0G2HqLBsD+ae3MmFiRhGiTSCbL1TrL1DuLJ/hyA/46SrXeQrXeQsGZImAZlYkEKNJY3a13t1d1KRROU8nPgs0+h1veAHTsBkXyeuyFtJaA1PgbxbcjlN9DOPIFS0YSu9pVurS3gCTJPq9PR0tMQP/vBtDKAKQW/w5N9AN+GUnXZ0Xpa0Rb4GtR8XldtrtuWAc3/DFCLIBKPCgBaw0NALYaY63UAxTXweV21Wr5I8V4F//EAAIGVNhwUirzgM2GABNS6W4XgpbXMQn398ingAhTPeYBuA0oR2PEDgHryDsiaAmQGSuXFnDeW1jILylg8NUqpcSdJBLKmwdw+MK30wG2qC6ykDpSeBhE52tQ4xuKpUSU6shqRpgFpTTmFnST493uQ5gSIBIg45KYO/u0uaOcXAEBaU5CmgejIauSwkfguZef6yP58qWDx5AuSfPewkY6ysrRNEpsTJDYnSdrpI62s7gOyr96vvPVVkvds2ZdmSk8DMgumlQAkQNYk5OIQxOJrDL+bH7p23+jE/jDlTyOA/x/nv6dOsFv9oPQUAAAAAElFTkSuQmCC">nicehash</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://minergate.com/internal" ADD_DATE="1630117382" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB40lEQVQ4jZWQz04TYRRHzzctTCkZaQMNEhMTAsadr+DKhRvfwcSE+BKufQFMXLjW6E6rkYUkQg1igqXYqRYs9B9NndHO0Na2znTmc1HaYKZRvMt7f+fk3ivuv9JvarOJR8AC5y8L5NOOXb8nVreN2n/CZ2tPOS+88TY1rn1NOQ+c2kjxLm+Qy+qB2T8FjuOymTkEBMn1D0gpxwvy+QKe5wcETx4/A1UDwIvEePE8GRQ0GhaHdoSX62ksywbA7fuUimWq3ck/AP24g32aARCr24ZMvt5iIrEMQL/bJOqYdKOXyL5fw4vOBraKSZu7K7cHG+T0/AgGCE9dwJlZ4vggMxYGsEWM3XR6ICgY/dHA9wc/6LsOpm2PhYe1trmL70vErQe6BDBKn6lUiywuXqV2pONE4n8VAFyJy8ETpZRUKgVEROOoWsZRZwBoVzNIzz2Ny4Bg33QIAxzsvEFMxQAQofDgjOY37FYZ3+2iavOcNAoklq4jQhMjgQirKL2WRcsTAbtV/wRS0up9xzSyOP0OzdJOIBdy55ZXiGja2WanlqPdrhE3i/hOD19RmD4x+DkZJqrGUdTpYXRPcZTwHaA+7Ei3R9P8woLxlXi/w8XuDy43isz/spir72NXPwKYAh66TvPGbzcH4GpQUPrBAAAAAElFTkSuQmCC">MinerGate</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.kryptex.org/site/dashboard?registered=true" ADD_DATE="1630119965" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACT0lEQVQ4ja2TO2tUURSF1973PXecIa9xRiKImsJCbTRgI/4CC0GsRBBJsPAHpDAMBAVJEAuriIIWiomINv6EgKZQWxuFNKNJ1Hnd13lsiziYoKKCX7cPa8GG823CABECABAAkOyYBT9DtO11EP4XvndcnBUHRGbk6sZxf091Rgtcp0TEAYMYZBRQCSwaQ5BeDmQGZvNd/1qLaBVL4hAAjNxoT5ZHy8+t5XrRVdDaQohBkQc3BvaPA4EPdBMgEaDbtq3Oh+x0ZyZepcatLydLw7seW031ot0vilxYJRoqFcnbOXEtksrRKtzEwgFILFsqsU9Aq7f29RxNPFIv2XEns82k0IX1VKJJFbAqNVCZAR8egjgC01GEVISUBRWio+HYD6r0inVqlq0WgJnFioBZCALRFlwPQQEBfUOsIKQ0qU6OolswBDBKlvn9xXAha6ezHIYuERkR0WIsKHBAtQi2ryGFgc00qZ6RIPRN/diYGw7z7MaUt8BoCq9djufSzf48lcoeB7EnwmzHAhGxJJmFSa1IaqUyGpnRI1VPJfl864Izh6bw1v83hdEkW1tIbkLzvi4XGvX4jG1nMF1FjiVUx2Id1hw//aRur0/7VwadbQIJASQ4/zYOTx16DUUHTDu1oe9yPBQYr8JetqHurU/5l9AUQpPslkg/3BQ0hdH7CNu3b5wgmKhUAx1GvlAZXv5ZPVyfuj4NEYB+KfdgCwBY8kfu6OW9z0TGn4rU7qonOPgi2Jn5veRbgRMr0e77erHxQC9ifCX6y/L/RoT+dKnfADbNOAPoGCd0AAAAAElFTkSuQmCC">Kryptex</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.kryptex.org/site/dashboard" ADD_DATE="1630121353" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACT0lEQVQ4ja2TO2tUURSF1973PXecIa9xRiKImsJCbTRgI/4CC0GsRBBJsPAHpDAMBAVJEAuriIIWiomINv6EgKZQWxuFNKNJ1Hnd13lsiziYoKKCX7cPa8GG823CABECABAAkOyYBT9DtO11EP4XvndcnBUHRGbk6sZxf091Rgtcp0TEAYMYZBRQCSwaQ5BeDmQGZvNd/1qLaBVL4hAAjNxoT5ZHy8+t5XrRVdDaQohBkQc3BvaPA4EPdBMgEaDbtq3Oh+x0ZyZepcatLydLw7seW031ot0vilxYJRoqFcnbOXEtksrRKtzEwgFILFsqsU9Aq7f29RxNPFIv2XEns82k0IX1VKJJFbAqNVCZAR8egjgC01GEVISUBRWio+HYD6r0inVqlq0WgJnFioBZCALRFlwPQQEBfUOsIKQ0qU6OolswBDBKlvn9xXAha6ezHIYuERkR0WIsKHBAtQi2ryGFgc00qZ6RIPRN/diYGw7z7MaUt8BoCq9djufSzf48lcoeB7EnwmzHAhGxJJmFSa1IaqUyGpnRI1VPJfl864Izh6bw1v83hdEkW1tIbkLzvi4XGvX4jG1nMF1FjiVUx2Id1hw//aRur0/7VwadbQIJASQ4/zYOTx16DUUHTDu1oe9yPBQYr8JetqHurU/5l9AUQpPslkg/3BQ0hdH7CNu3b5wgmKhUAx1GvlAZXv5ZPVyfuj4NEYB+KfdgCwBY8kfu6OW9z0TGn4rU7qonOPgi2Jn5veRbgRMr0e77erHxQC9ifCX6y/L/RoT+dKnfADbNOAPoGCd0AAAAAElFTkSuQmCC">Kryptex</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>Bookmarks bar</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://app.short.io/users/dashboard/383105/links" ADD_DATE="1656841967" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACxklEQVQ4jXWTzW8VZRTGf+d9Z+ZyOx1Ki6HtNVKoSkMs1VCE4gYTYtxgQg2mJm4wuvETTCRh4UJdGRdGjRITYmI0cYkgKEYJBAMEEgxQtFpY2IZ4G7lAS0PneufjPS6mvcCC8wc85zzP7zmydmyfMj9OlVwdz3c8yPCSFTzkR6hzGGMYH7/MdwcO8f2hH8jzHGstALJ2bJ8qiqiQaM77lUGG21dyrzn72znefGsXSZJgjMEDsAg3XcKWxcsZbl+JU8U5x5EjR5mYvEL/I6t5fN0gpVJAkiTU63V83wcoBABUYX24DOcUETh48Ed27X4Hz7MEQcDAmn52vPEqe7/8ikYjIQgCVLUQUBQrhrKxCCAiXL9xgzRN6e7uIssyLoxe5JXXdyIitLaGOOcQkUJAEDLNmUpjxAiZc2x7dpi/xi9x+KefASGKWlFVVIvMRQQA2/3ayLsLNmbylK1LVhCIISgv4umnNtO36mHiep2JiUmyLCMIgub2uygYhLk85Zm2Ht67f5Cy8XDzCAFOnT7DJ5/u4fexP2kNb1swCxacKqH1OXBzkhf/Ps4vs/+gAig453hiaAN7v/iMjRvWE8cxxhhUtbigoKCAYEWYcykoPNaylJGOXrYsXo51Cp6lWp1i5IXtxHGMtba4YD4VRCBXJTI+ofU4X7/O21fOsH3yOFOugVOlUunm0YF+Go3GbQsKyHzCijLrUlJVIhPQ6Zc5Nltl/8wERgTnHF2dnWRZfmcGSo6iwMcPDPHS0lUEIkzn/1FNYkLr07eoDVXFGMPVWq35Cx6AQbjlMl6+r49NUYVNUYXn2ns5eetfqmnMQLmDJ8MuRITp6RlGL/5BqVTg9BYseAgtxiNVhy+GnlJETym665GSJOGDDz+idu1aE2WzyiVj+bw2xtm5GtvaexkKl9FmAxSKKp8f5etvvuXXEycJW1qaPfgf57o//P4986kAAAAASUVORK5CYII=">Short.io</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://studio.youtube.com/" ADD_DATE="1656840796" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCElEQVQ4ja2TMU4DMRBF38wiEFIqKFYIUSAtJ8kNcoood8jJopwgRyANNCg1aSJl/Sls73rdoBC+NLI982c8/raNAgIHLC2NKZRHg1BHavKvyDlWOGbAG9ACT8RuSgTgCzgA7wbHstpC8Ck4CSSQzDTMp3ZK3EVOvhN8pGAvCILzYGbnYh0SRynn1oEX4JGpME7bOmaO5Lh7daQAPADPDtwnLSKhaaI2q5Wx2RhdZ4RgTIXOBWde7WyYRWLfw3wOux2s12PhaaFQK30xbqqzCSnu1DSw3cJyCfv9GI+Wu3AEneCY1M23ENS2QWZx7h4G/8j7FrxefY25rz8/pH97ytd/puS8+Dv/AFRGv3m23DwSAAAAAElFTkSuQmCC">You Tube Short</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.youtube.com/" ADD_DATE="1656840799" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABx0lEQVQ4jZ2TQWtTQRDHfzO7yUsNKSG0heJJ0YKnCvVSkHrV7+BBeu7Vk9+lH8CLN6EXk4Lo1V48lGClFBELGmmSmr73djy8fS8vll4c+LO7s7OzM///LhQmBmrg+uDtZrgIBQQAKyf/YQbiBexFt9t9niSP7ji3umrW7og0UfWL0ZaOzGYjmBxn2c/BdPpJxuNz+vDwFxxnqmaqZs4V8L5AuS6haqmqXcDpO3jCEN4YmEFmkMcxrSCSGqSh8GcGIY52Am91Ce5HJ5EYBRwbG45222HmUHVS+DX2DhASuKu3oAeolGSqCiDs7gqHh8L2thCCxOQSbxFAO9BToClzNQSJokwmsLUFgwHs78P6eklnlQho6c0axUKbTVhZgUYjHpeqCwE8kMWFxYNF9uVlGA5hbw8ODuqJzajqnPENPtfYDxU2N4OtrRVzkVDfC0V8/h2G/g98AR7ESkJF8tFRcYdzkOf15iRW6y/hlD48voCz+BbmELFrvhrG8OMjPBOAV3D7qXM791R73Var00qSJRoNTyifB5Dn+eVsNv19dTX+mmWj93n+4SWciM1LKkmqy7RoImFBqPqPfH39K7t/4A18f74nAH8Bjm35s3ZkOjEAAAAASUVORK5CYII=">You tube</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://mail.google.com/" ADD_DATE="1621178386" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEUlEQVQ4jcWSP0jUYRjHP8/7/t7z/JelHAhJEN2QUmKFp1DkkIVubVK0NCSI0ODWdksNQRQJQhq0NQQ1ZYM5aIiY1iZEdIKQQ/BT01S8636/92nIjgyusb7Ld/n+4fnywP+GAMw2NdW7hO3cNW7hfC4X/s2gr0jFB2z7znY8V9fDusmC0YQddcaMO1+c+nDqeFc589adxq6oIpiyVsargmBUsxiTSaediQsn86pYkZbqZMX42sXMkGYxpdYsJjzXOaTLdeOBo4U8BBq3ksEFd699kitvbsRtyxNE6sFItRO5tzrTnvlyyd0EWJ0pPnQJ+rw3+MhjRJj43hS9XLpMAPD0wjBLuRf0zN7G+oiCT1Ahpi8ffW8FqLC2Oe89VXi21DG808rzrSNsp3OYynrUasxcy1Ue9z7RsOZwmMST957AmObAmOa89ySN8FmT4eDGWX22e4xg78A9UlxUYKXxNPczDwYo5kecCAoo4ESQOBq51XZ0YDFqIClxadjSUABOI/lYk16rnV4cjNB+gU2BzQjtr51+P5hrDNYSovK7Z18AQKUvWIDU5MJYLHTHQndqcmEMoDLC/qkPfrGIART1cakh9Xr+3T6194KzIILGP72mY52iIvMeH3r1obW2UO6RxJgCsQ9RH+J1PtfbUQyyWfFnHun1hm8cAljZYaNcwLaVtweD+ARAYSv1Fcn6ctp/hx+qpdgPE5JfygAAAABJRU5ErkJggg==">Mail</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://drive.google.com/" ADD_DATE="1626600363" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACtklEQVQ4jZ1TTWhUVxT+zjn33TczeTNm8rMwMgzUhVWKjotutAGlVhRKKW0tgnEhrtwKapGALy76Q7sRXNlNq4tKbAvRnSB1U6EtSKWlUGml2FaCzSKZZJz33n33HhdJNNCsPMtzvj84fMD/h9bZAQB0nZtZh6zbvjjwei93h0PmCACqFdaLAw+u0sTDW6uY9dwIALZNv9lKotov891uwy32sQCLt+vzuDR0t/u467dvPIKHK2AFAH5GT5eVqxSfJ+HGANuszHyRZEVx1vyeifGN4SqmCNAVLJ4LpGCkCJ1v3tktRibKXuFja2KXNOyJxiO7Oe5WskV4I5jQGeymFEHTZe7zBAqKAn8EQAAEFdGkWZs9PvTPLASBgEAEKQM+Vl2bYMV959fvHeVYxn1elgDIVIW7Uj81utifQg1MBHIZSmPxmp/B0dUUBIBemt7XGOLBe0TUCoX3bCWC6s8//frKq/oopfIgfmRGp8zhTAQB8Dc77MD76DIAbfLwSYltOxQ+ACwkjCA4gzQt6RKcIXwAYSggrkDgGG0YnCRAafv0W1ti0TvqaRBBPVclKotw9e6hmSNIp8whANfSc0G/3XAFlaXDRR/OsAoM5jnoLmp9+MM4u+S74BwRASxE7UrrvuXGgkcQA0WPbNhcPKhf+O3dLcF5VQJiYTW2v1e6tz7/N+4MdIg2bs2WYt+kUW5Wk5EAbGLQWICMVdVt+iMaGRmc7aPz1+3AbkzcnF5v3Lj3KQPkOZ6bBHp5xXoeTdS7su98/qT0rl+GolfmRVY28yfuy5eP+f+GWmx4Ic/rOgmQCqC89P3g43jXmag9OrwnsZYhViSKmSPLHFmmqMIxk8zVahxV2jT+5+XP6rfvf6VYfiMAJYB0/yfuDaehCYVnXtsTjxBEQYXknMzfOU03FSBaU6oXnqcPZiRKuF2x1gAAAABJRU5ErkJggg==">Drive</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://photos.google.com/" ADD_DATE="1626887832" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACh0lEQVQ4jX2T34uUZRTHP+c87/vOzM7OOooXmaChlbmLhY6XXcQWSgRJLFPXQSR4GQYuQcxVqRH9BSFduhuBURcSVP7uxlJkV5EiihbCRWeacXb1fec5x4t1/bXaFx44h/N8D9/D+R74HziE9viOtzrjjR1P+qOPIQlLj0vbNowI4cs0hDPdVxufO4S79ZUN3JdiAV/OVwG522AhWrmWpB/0xhsfCrg/wLsXiGA+RebfsRpwEaz+dE1ERAD/L8Zoou/OjJIJ2KMNJJ5k0tfpb1bWq35OfirOsOva8Q191IKISGGuufmadZVNlRUjxBN8plX9xAsZdWQtA3klIN8/dfTnPX4r7aBu5RCkpHJ176bGTccFXAAk/4Htmup5iYg5qEA0Ja0atPVy59C2kUom64Gc2wtvlk9dOf6ggiQtsdGF61aAKpiLpsWgYBHaXnmuu6oqt/PKxbm0/mmjMfXL7p3/rOmXan6z7H5hpt4TnyKQUiNFugky8hexObzr9XYtOxD7Q2PV3w/S1Y3zRaL5UNGvuYjhjmYlBtHeT+RtItBZlvTs0YndtSz5igGZhXwulurdsuvWrOjhkoAbiOIxWmH6py6bx0GaTUI98HHqloU8WiKLudi1luEDsiEcB1Wy4QrAF2c/yi7cM4+An2++NmyFPR+L6IipD4brJ1984Zjn8oaInwCZF01mi0Wb/HGyvB8esSWt0awxuvWSqGz2aApcv9ULW2bem74B8PKBzuobf8z1Z6fH8pW30EJpzeaoHkmqacARHO/lC07LFeD0wXp7dnosX85XKgChiTbemTisSdhnhS3Oz/+7+e99p9v3z0T8YcIT8NLXE9uD+DO/xm++ZWlTj8UdrnUbTeRhJvwAAAAASUVORK5CYII=">Photo</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://web.whatsapp.com/" ADD_DATE="1593431712">WhatsApp</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.facebook.com/" ADD_DATE="1630844105" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACAUlEQVQ4jW2TP2hUQRDGf7N5OTEQNSYECXIWkggXsNfOQw7S2BmxP0XbgIWIEkhhI+nOGDkby5Q2whWpLAOCmGts9LAy0SImknu7O2Px7t17+fPB8s2wMx+z3+4Kx1D9YPPe08RomFDFQBw9hM7oCO3eHdku10se1Das8sd0VY3Hgrli28plKsLaRXFL3UVJhwK1Davs9sNHw+rHJzqCgZYgm1NnkoXuoqQOYOegv6o+1i0Y5hULhgXjnChvbjq+3U34eT/h0TVBvaI+1ncO+qsAcultfz41/cJw7AKvb1W4NzsyzF9ueV59jmAGiFbEXU8OU98UEQdgZogIZgbA7cuZ5rNPfd53Aweh7Im5Q4vNhGgNHTRkxyziybOZea2t9FRPRaSRaBqrRcvpUK+nCjiRamJesaFkVvD36YUjAntPzgNw490eX3/pQAUikKi3nmG1/AClOz+B779jNo1kNQ56iQbtALWi3xh7vgvAv5UpAMZeZHlhsuYedNwIrq1eVdOIBmXIQQsP0oimEQs2ZIuo4Npuf2VyWz1rGix7JDn7kkAwdPDIcia1tf2VyW0HMDs+vWRBN80r5ZUjzzXnoJtXx6eXBj5Ad1nSuYmZBfPasmh6YoK8OZia19bcxMxCd7n0mcqoPPgxH0SahjV0vVoDkIe9LiKdyqi109aVI9/5P6HySb6PTxU7AAAAAElFTkSuQmCC">Facebook</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.linkedin.com/" ADD_DATE="1631452183" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC0UlEQVQ4jWWTwWtcZRTFz7nve3nzZqYv8Tlg2hqplWoqCFoRu+imKysouBK0oiAudNGNdOOfIAgqBVGKC3FRydJFFwrZiBJ0IcVNaVBU2qaB+DKTZDLzZt53j4tJEPXA5cLH5XC43+8Sh7q0VvTyRgCwdScQqACU+LeqWStL4MrZHQAgnv4szc4sXwshOz+uaxCwLNCF/0sCADlDy2JTr9br8RXi4lrR7kw3ppa1j7bjHgG7u4d2ag7814WAXKAFyOvRaJgthl7WqB99fKwb/db7z7okLb/34/bdgc+nJkEwkDMrAZIAjwQwxG6jcJDNQCK6EkkEGIHZmxESYNGFxAgDXABJcBbq+etF+6Hub1MP9z/QxQZIbu40iwZNBDSTaWyDqOfzoJ1RTMyYttJU7tPt0X72cMDRQtMYWbSga2+fdsH44kc36o9fPfXHUyeOZFe+vW2vn1vMnlzqxu/XB/7OF7eO3Bl4MZdQqCqEshO4M2yUJMZzjy4cB4Bgtv/MyaL9+LH2g1dfWwJCPgKRX3iixOdvPnb7uQ9+6SKhoQSsqiqQpCSM6hiHtUsAd8eNBPjVHwY3W298N7305a/3ADRnH5nvLXRTThqpLAEryxksJGFGmpEQYGRCgF///FdeO4uVnzbLSeME1JrNSKhKWFUdQqJ/ioAfoJSnRphkZDqJnlDuDpPTWKQbZr3jjSSJJNJgCglBQGkwASAIQSBIzYVEbKWWqeFcnOj3Ey9NwtYWkM4CqT9s4KAkYDBquD9FM4mambhju3bY6jf+ycplpCF0Ovv9F4iLa0Xeqe8xyfJOKpDE3jginyNCYtivI5ooyAy9NOLTlbdwsv9njFme1LStgJs3Rn5m+XoCnt8ejp2gpQmxOxIlKBhIQHKxvzsWze6LWTuZWoA0Y/rgnNeLEusASlRVhcPfqQ62vDDctP7SaV/96uULvXr0oRu8aeK7fwORgXQgeJlEqQAAAABJRU5ErkJggg==">LinkdIn</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://twitter.com/home" ADD_DATE="1593514918" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQ0lEQVQ4jY2TP2gUYRDFfzPf5nI5NzGJEk1MoyCIYhEEC3srbROsBbVLbMTSQ8EiWIkQg4VgoZh0dmIlmtJSKxX0SHJiNH/vcrd3u89iT0lEIa/8Zt6bb2beGHtBWc7wu8DAmYwJS/+dJNmexP7CblJZThmBaefzyMMf5727eM7StFLZWH/GxmgrHqwObE0Of48ADs38vBh5GFu8ZncAmFPgA0bZ2iOP1m6EQmnaoi6QGBXXFa9XRHF2C15EAJHb8a7Bvtujs6tDDQp3VyZsGaD33tJBh1ukibJmPZEUvLt0mtb2MbDHf1oYmd04ESJbsJ54MKutVyU9T/GXDvvd9BQEGAZtK/V5Wt94snil/zJleZTPrxlnWdcXb9Rjs3DYS/GUN2pTZO2kQzWBhMnNArLPnfF0BLy4z6NoTGkbZWlqtXWZEcAKhsjJYChkSYKy9BMA75GDrHq197WS5k0LvmbmwswFCEkgAzMhQsGUbK9sWuMVAPOWOp2FtTPNqZW0vLsUSfq9YzMDgTDaXii6pPub10ZWcl3wvD2ofuv/ati02slHM8sgJypDSC2P9xey+tqbxWb/dOdTygVyAxU5iVWWVh+k7WQWjxpm3pIkQuQe9xdU23rbCN2XmLTmTpNFIBs6/HOsazVM2ZEDF0Jfb4xALWHJNqBKWtt6tLhdnWbyeHNn9V1WPjBTP9ITmmcFRy14r6XZptw/NH4sL6zcPLGZZ+0m7x3jc+F/oR3HJGMc5xTG8Dtj+Yx4Py/mJ/5zvjl+AQtZFQkCNkhCAAAAAElFTkSuQmCC">Twitter</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://open.spotify.com/" ADD_DATE="1604242494" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQElEQVQ4jYWTS2iVVxSFv7X/Pxql18dIlHqTgU+kikXnhmI7dqIdlaqIj6qdie3ETBwIQicSEgc6LJlUKEjtoARxLJQ6SUkh0RtB0IHgIyn3P3t1cO+1oS11wYHD3mevfc4+a4mV8HiM/NHZ55Kfg8eAD/uZRdBMhL9f2D76GxrPQYkGm52zJ1pL5Dmbc4KtK3MDekMnFDeGYfL3XbdevSPYOXuitUy5ZnMKVPO/cGM0tZxrLz/fM/E6MOp3XllsoPTXP6Ba+PTaavksgEbmjn+cje8IWgrfs+NXhRdTehOpyGS9YNSRH8nsx7SBCliIiiO1C8cEbcR0k75QVVqPtEnODzBF5JNmKH5pNfHyVe0NQ4XP0j4vsy+tozX4UP/ShyvpHi4bnBKQxoG0qm7cLOH5oa5+6g4xXReEuWk8VtObOEBLjgeyfyyuXtThbkZEsVtVlm0pPkG+WDecxQSAzNa6PzCATFEkfUrmroLXkflnmKdGD6njO6WuO5srwLHBz9Y9kbAFWC37C+CRgg5WR6hGucXwtZryDXAXet0BLC3WEDOQBwGh+FmhaZybU7RQNmTcd+iZXEZsX8Q68K4ezWhk7uR+N+UHYBRY7j9p+G8lukFalHXH4Y0kX/bkwHylOCKA9uzxSzivvl+FuE/cFfr28e7b1wNgqayZMJoCN+8hENAlYvJtrpkcBICBHzhj51dAm/8wE+KxHDfe5vDU8z0Tr/nXIY/H6NzC3uypc8zq2dmiIzRToen5He1HK+38FztZEVHyRM4YAAAAAElFTkSuQmCC">Spotify</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://docs.google.com/document/u/0/" ADD_DATE="1632141736" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaUlEQVQ4jWN0afuS+O8/Qx8DA4MAA2ngAxMjQxGjU+uX92RoRhhCgWYGBgYGARZk3t4qbqJ0Obd9hbOZKLCdgYGBgQHFBcgmEwuo64LRMMAdBvhcNjjC4AMFDvjAxMTEWEymIR+YGBmKAFW7HPuyZ4OrAAAAAElFTkSuQmCC">Doc Google</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://sheets.google.com/" ADD_DATE="1656841080" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArUlEQVQ4je2TMQ6CUBBE3xJr+VpZewRPYmEBVoYbiGew5gRgSeMBPIVHoKCywEgM/VoghKgxfrF0qs1OZna2GDG75QrVSFUNFhCREgjFjb0zMLYRd00chNEjUQYpZZAyHU7eGqiqcVDkm+sNnD5iAHFjT6GObQOT+L9JMGiG2X7dLo+LCID5YUteFZ8ZZNfTE5lXxct9F71f+BuAmMS/2DaxFddl0s29mtZiILwB87oyHUprhFIAAAAASUVORK5CYII=">Sheet</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://meet.new/" ADD_DATE="1656841193" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACq0lEQVQ4jYWTsYucZRDGfzPv++1+m6y5W+8ILp4gR0BQghDiEYOFFkGSi9rkFhQVg4KFKWysAiFFBPEfsNHTxibbKSSIjdqkUKvEiEa5E0+OzeZCdnOX/b793vcdi91gSGGeYZqZgWeGeR64BwbCA3D/jNzbELBrF6jvm0U3NmBh2tsAFhoIP1PIWRIA51ccnW4SgPPgOhB7R55+fe7da2dtbpRL0IQgBoiZIeIN29yJ6cTsi6zdJfaAdCCuPX/4rZqLn1lUFQFEEJmsqA7MQHZpe2YrHQDWnu2+8uatwn3rDZRDc28Eu7ValTF5X8EugWp6FBB2LEXU6qPoerXZmce/PLYqTTuZx+JVf+r975YeK/7+1AsSsLg8+uTjJ7cv9avgJZOUEuQRPVOvx8Zfg9rwvcGB0w83bbG6PY4A8ty54qXS178yATHsxx9Y4oL8BNMKYN8w/n6n5d+5shjskXaab+U+WNKU7DVfi2XIrUyAAvH44aF+/QH+4uVj7uh+Ipdpfd7be/30+uKjo8rcggQfk5iICBg+4rEJEQC3U8Okv2LcfMroN+3ovu3y6h8pBhtYromIGtydd3hVRJ2KIIDJnfW5kjPdCN0IcBGGS90Te7Ybyo1/bkbMTARnYI6I3xoOkjizydNS1Ge+OH7wyMsHQ6ypSEwqkseQ6s1WU9TpjqiOtObasaxCUjG/2e+DTwZqokHaT6x/6HNPFhURBSAWIYUqpsae3btTDOdCUS3XWo0Xyq0iU3Uu81nunMvEuSwjeVIZSGWc5DiCyiRqkpnZbz3dXK6GxapR/umLcbzScOlXNFvA4lh0XII0ESYqThMti4rGO6EX4feNzqXRBrz9n5lWfqnNP7S3Lvl1ax/6yMqZgXLjPhvOgyvr5dVOdzx1n0xJHmzh/8O/OedJAuoi32UAAAAASUVORK5CYII=">Meet</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.amazon.in/" ADD_DATE="1625577613" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABy0lEQVQ4jY2TP2hTURjFf09zM1UbcGmID9xEFEyyCTo1b6uLxuCS1e4Fg4tuIlhczMMti0NwadOho9DNf7wpCCYdDEL7njWgiU87NOBxeGmavryKB+5wv8t3vnPuuRdJaUnPJO3o/7Ez7klbkp4AD5jC9vY2jUaDz70elmVxc2mJarVKAlaRFExTe56n08YoFVu1Wi1JSYCkwXTl3vKyUsao5DjqdDqT/XnbTiIYWJIGwPyhpiAI8H2f4XDIzzCk2WzSarUAGB0cxC0MZxR0u13li8UZCyljEhXMENypVJQyRvliUb7vq+66/yQ4Fdd0KLdcLpPNZmm325OzMAxnc4gryBcKk4klxzmWSN11T7Dw259UPM9TzraVMkY521bddVWuVLToOAq/B/rTeSl9WInWJIXNy/NcX4fMxaTHcoSt2zB3AdIZ+PQI7mqcwu5r6RXS+xUp9OMyj/BrV+qtST860tq52Dv40oJ3t6JJmRuw4IA5CwIsC/a2YG8Drq1H9f4buPpwaEkKgAUA+h58fAzfNqJGxv0Ac5eg8BxyJRiN0zBnvlqSngL3j3kddKH/FkbDiCFzBXKLSbeyiqLv/ELS/snmZ7A/7kn/BXFbL8ajtAhKAAAAAElFTkSuQmCC">Amazon</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.flipkart.com/" ADD_DATE="1626146362" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC5klEQVQ4jVWSz2tcdRTFP/f7fW+mycwkTbSdxhpCKS22UJAWaYsuKuKu6Ma6UqhWXNaFgi4EN6H4J0g2oujCXytFkIrVjcVfRUQstTG2BpqYtBNj5r2Z9973fY+LxFYvnN29595z7rH3hT+1xoescoxAWC/atNPcfBKRAMAMQvAMQ0PtxgASEqa4+EGHU/bThf33dUayH2bqpRGL0a71ukx1btFsBBS3CBzkZYPV/jgzk6vInK6nU4ONMHnEen+M3ajLZNddSa9v2mp3CP27f6sMo/aG1VEGt8Jk2zfCMhJSQBJSmUrZa5KaUu2laJuovaSOYva6VJr+O+MoiQpIhYlYKSajisNHRFmjQlIpUdbE4lEFL4XgVA1S6sqJkmhxiMy4bVhd30MVzpH4i3h/AYjU9QlV8YSNts6C68GWN1RgGiIA3dFKVbQJ4SnFuAcJfHLdRtO347eL+/LPF46m68WO7PTh91oHpn9tEAv0PwxNKlEcoCqjLnNiGFA8/85sn5fmS84uidPS0+++sagSJVS3fy0JM5OoDeRwZuaSYLOfvljOffdsi9ENe+zgZ2sPT3/TeWj6UpsKmXp3rseQ5BBYjIYlop9NDPfPfexuFt3Gobt/6/34zMkmnbJFBSrAKbJpihARMx/NuUhCjW9Efl/Zm68UExbrBo/v+6KkWbbC3wkxd9EiJJvhQYAppsXV5QPZ+YXj9sv6vYykuS4tHWwCCT7X+YX7xwfDl2++cuzNZHJsZTxWJtOqxU0GH6qwLeTlRP7R5SfXnvvk1T2Ap9WDJANM9LuGKV9+4ehGd/u1rioXTTeIGFR1O8vK7YO/hmPuz2ynW1if2lYF72a/P+Ou9ncn7caGzj0wVx7edWXw4O4vJzAEyLRoIgBO4DZzgAEp0KfqvvWVrQxnkuM7f179+omTO2iCBiYDI4GEDeZJ2KtgwkAyq+XkUtnlpUP9WI+3Or7myMSVksyHqu986kPE8AyY/wck4cIxa4NLdAAAAABJRU5ErkJggg==">Flipkart</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.canva.com/" ADD_DATE="1630569057" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADQ0lEQVQ4jU2TT2hcVRhHf9+99933Z97M5D+JxiEBKWhLNgHBFFKlummgLqQU6aLtplSxFV1Yl9VdQTfppgiShQuhgovgpkhpDaTGTRXrIiVW0zQmppnMTGbmzZt59937uaiVnv05u0N4AgFgAMCPd2eFFmcBeZi6piIBCOFvSMPLlLiF9ltTS886hKdcvx5i8uAVOHuepPRkZmBNzmwcyEmKVAF+1xmvJ6/t/LV3CR/NpE8qly8LTE8H1FdZRF/xKBo1J8DOZla8HPj0WiFGkjm+sdN2nZREKRoRcrd50zzsHN/C910CAO/2b/MoFy/YejWTkjzNDp9PjOPEcD+tVJsoeR6PBBqnltaxWTNmwB/Vstq6+vsHBy5SeOPeDBSWLAwTQcBafHdoUrw+2MdzP69ipdYBMsL23BR98+e++/D2Fg6wdl6qSXcwq5Slcyw9KXKTp9bSJ5UhHBsdxKmVNbq1k2KYNEZIoqwlP9rrUTEjKMsIMi11155T2qiZPM+ZWYg+EL83MSrWmyl+WE/wHAI0E4epkQgLv9bo61/2MWa1kx0IL8k5Sr0Zpdp5RUpHHQdMFUI8HwdYvF9DtyYRK4UhAyz/keHWvV2MSI/9HlOYEIK2paCFitIdAZICNnUY830wwNt1R1T3EGoFZwDPAiETeg1GyECYAFFboNCSUFEabxDbF/OmYRMoECBiqxA1NAqBhMkYkQDaCePQqKLdh9bFKRC3PBQTvSHCqroTNmIaagXuwRpRmjFPVwqsHmvoPYVyx8M/q4QjEzG/PVXifBNUairX14wo2scdOXnw48e6I8/EmUT1byJPCsy9GoiykfzTioVIJY4diXD6zQJ9Nd/mckeg2FQctwSrrnufAOCNd1rzWsQXbFLPul3y3j0T4ORJn3bqOdotwOyC5z9tYn8nxzCzGeyN6jxrXP1stf8iASymp7eD8f6BxYD8o1meuNqec5MVEhPjgtK6w4O7hku+c/1EopQPiJ5r3Ky20uNfbo11/5/pBB6F6pWxK9LRee0JL21lMO2cCwQMFIiCXINdZpTAtfvtvUvfbr6QPl3yvyuJAeD0S2ZWW3HWJzosYCrCWXisNiDssuN84Yu14tKzzr+0iI2j3G/VCwAAAABJRU5ErkJggg==">Canva</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://github.com/" ADD_DATE="1626587203" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABeklEQVQ4jY3Tv2qVQRAF8PPdP7k3itoE7SOIKFZiDAZsfBJFfBDRQjBFGkFiJ/gKerGwsRAsvaKFFhYWgo3GxEA0P4vMhTUk4sDy7c6cMztzZr9kn2EFD/Eem7Xele/yfnxLnMP9Isxst9bMfhRmriX2MMLE/9ukOL1ZktUKvMANvMIGpnhT+9e4jmeFvTcjL2ELv7BevjFOYYgBFjBfsbXCbuLiIMnNJPPV0Tb6XddtJ9luJPqKDv0kO0n6SY4kuZVSeBc/cabRpWt06mZnLJaYu5im+oPPGB06pr9Fn1aCjV6SYcWOJhm3Nx9A7pKMkywk6ZIMe0k+JJHkRJLlruugf0ALg67rJFlJcrI4H4NHVc53fMLZf1RwDm/xu9peD5brcBuPa/8cSw3xAp7gW8V3apSXZoC1quI87uApTjcJFptXuFXf1VbVPl7WSK+1txdmjC9Nkom9f6fXggZ40ICON7Fj1feOvWc/zGGGK9XGqPGNcBdX9+P/AO1cPr7g2LjWAAAAAElFTkSuQmCC">Github</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://torrentgalaxy.to/" ADD_DATE="1631394208" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADX0lEQVQ4jW2TS2xUVRyHf+fccx9z59VhGKWdlloBQztY+kpNA0QIsOgKFi2mIazcGVeuNLgYExfqxkVjTExMTFyoY4gSEh/BpPVBeCVapgx9Tcch00KZzvsOc+c+zj0ukIYYv9U//3z57T7gGYQABYBMBopIQdr5J0HX1varAJBMPnGeQnakFKTZabCT3x87ylwNq0euXu9wwqor+6V854PmyDfHBjRZ67334tW5s0MwCAHfGRApSF9OQxu/dOoNwVkiG1v8+GBHaHAX1yY9Dv0xtf64Sx7+1JsbndKo3PX3vtvJ08OlIiFwqQDI7DDY4ctHZmTH91YO+StxnzqxxwrORqDNRKh65nkv8GGCd7/+q3rtR8+h43uzox98uoigEKAUSZC+ja6+YDt6sc3dwn05X4rz8EyASeHHFndM23MYKA072lRM16JVXp8PCP/5odzI8RPzoPTEq6Cxcu/JsKq9YMPKO4JR4tEOIcAhQAhAuQdOAF1xNJ9J7G1dZSRkRc8M1RCgoRx8iuM7qMqSIJTIj0pWvdhq/0koJIkSRgCqalRq2O5KpljbVCTKAALG5QP7HC3CAhaYUD3Z8wAFSmdMUbxf1ipfCw+d8aBvAoLIW6XmyrVC9bNi2Sz7erQemVJ4nqCtkqywW0vgrTG71rY5USG/lAh1700tbNxMrzffG+kNvMyopC5ttpYb21g+NRmL+l19XAjAFry22TBMll2EvZ0wVrpky/LLaiQu4lOHZlZubnyC9LtfGEs1ATI9DGfsfZD+4sR5n6f2Ny2HVN3Gnbk0DHYccG8VCwsH/F3LQUUZ1O3Q1Ony0XXj7ey3Fy4K0xNEWAqXlVz3RNje/aYiMalhtyvZxtZ14wFMNjcPPhasFV6JFS+FZH2QEcmn13e/o94NvwbAJCAAAaOc9kiCRSgDHrVrP3+3ml/4aB4OI4CYdGGk0n9djhzWD+2P7DmnU0VlVO2nlDxtBC714AmBglG9cWX93uetDMrnAC4BQDYL7pdgrppbayFdNighWtO1jXrbrNQts1K32pW63d5crhR/+Cqdnv39dvXOjd/QACDIs2ENDMBfVRFN9KHzubA/rEhC4uAQQvVKjVYzk3MfSmWU83kYwJOY/g/WBegAggBC2IXQv7c+Csj/lf8B2hKCDnRsDqcAAAAASUVORK5CYII=">torrentgalaxy</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://translate.google.com/" ADD_DATE="1621178395" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACOUlEQVQ4jX2ST0hUURTGf/e+Ny/nn4ma05BOlIYFTZsGoj9Gi2gTRLUoCIpA3bRq1SpoIGpXSyFpWVCrNpFQG1GCiHBRGJkSKISmpM6Yo857954W8ydngrlw4HIv3znf951PXX28+tRop18ELICAACIQNiunX9xJjdPg6EA5/aBBaVRdbZimgUZgAC2UJ9ZNF0BcdS2bnfQaNXClcpP/P5WOuK2HI5+npqanPc+1ruuKtWCMRWuRQiF46VaAu+LQ3+fTHoX5HDx6GyIQmFmN9p4p/u6NRiM4jkZECIUcRIR43LnoVigP9Pm8+eIwMaeJN0FgS++zuQjL+QU8r0A8FkEpVeuBLevtaBYm5jRnD1nunvd5eMkHwIji21KE4laRe8PPERFESrRFhKqExbzi6F7Lu6+a3Aac7LFVY8dnLKsLExzs6uTZyCjLa+t0Jdq5cCrzz8QnYyEG+3xunDAs5RVDo051K2sk2RlvI92T4MfPedLdKY4c2Ie1FrfMhoUc3H8dqtmIlGn6othUnYy8/0C4yeN4uhff93EcBy1SMottJdvAFRnfcy1sFQNQCmMM1lqCIKgNkgC2bJLdBhZgNt/MuWMZ0t0pXo19xBhbkhBsbg1pz7tVnycRUAqU0oiAweVXsZVMqpmWWAQRCzjULrXuZLOfIuOTi+sAsZjD7ZsJkokwSoHWGqUUunGDTGH/Hnc2vEMzeKWN9tZQNQOVHDRsAJDcbR9cv9xMssNBxCJS0m6MYWnlz/BfVT0X3fHmE3AAAAAASUVORK5CYII=">translate</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://td.msgsuite.workers.dev/" ADD_DATE="1625632948" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADcklEQVQ4jQXBTWwUZRgH8P/zfszOdqed2ZYK2mJbQSgUa2JFEmvCwQMmpiYSsBghYhpj5GBDJBGFg8pJExNsevAjclMsRmpETTQ9Ga3Rxo8mbQIES6ViW9pud7u7s7Mz876Pvx+VDnfUYIwiITixljxBcIi5KKX+4z9+f/R1392zmV/KNthIW5K1KgNEADEJkhUqHdwaw6TagDgvmWbrhM8LLlbjDBogY5aEdc86d+41aHncYmcfOA0JlpkkybIiIjYgzivmTwsa36434pmsi75GokCSIwBEKTA/Y3lsKsFfBxLec9RCWAJArFIGBdLSpQ2NiWKA0ZYM5QQzGKgDiC3gOkBfo6DWdQfHf0wRHQKyGRBbkHIFYy4SGL8d4HxrhqSwXDGE8dDyVBRXYpd4d6qa+q3kd1WEHWctmholaqGBEgyRJcZ4IcMDTxTQ0lpnEyq8XarXy7lSOuytjSTnyxeuDhf5dNuauefVMndsDzksh9AuMwlKFYTWi1rg2QPLVmGVJj7qpE1LcE92xvjypnvs9ze7RcdmRcJnMXsZND0GpHXi9p55se+FNK8K/66cqwb5lwNBLdwUY6a9ZHqvmQ+xsBJ+X2jb7+0/tzfe9KCx9ZoASSglWLGguZ+PFtoHfh0RLa+UvaXcFtIwIEPUXItx+Mh3GXqDG8a3PUmesEhdJWWTB+1JaJ2AXIHAkfTOyi1XKR8nb6pd0OUpu5wL6M8td4n8P5NDxacfhr1/XymZfKvsrXZ65TtLSNsHyd91EFGxxtu823mnWZ1WLBDN+49kRme+oYnMY3y1pwFd1y5ECx/n1Mp9T31w5dCQd92IE2cu9ZrQ75FKSg5Xb1C3f40F6ZjU19U6r644bWPHOf98QI7WsMYwfltE9DeVAiflahMC6h5Ai30NEJoWfxjmzwZHqXdHrkbOF2tx7PnKn7zCXdNnSB3bCXZcgBgUJ2RSQLqSpdqArD1Eixfb7Im7z+LUc1URV50NBSUZlRJKjw5gLq5j6yfvIduvga48kHUhHIE4sgiXs0h+muCh1us4NRghCYkFAaQvF5OEoWBTIBdA3bqB5l8uwq9Os6PXE1dG5Kd1tVut05G+Ivr31pHUAEEMhqyQ+1VxLWYoMJhMSrYhB1au0dWSZ2YXRub9B9zm7d6LOS+JQaSTuoiICCSMAOnK/17ln/MJo137AAAAAElFTkSuQmCC">msgsuite</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://admin.typeform.com/" ADD_DATE="1656841257" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACPklEQVQ4jZWSP2gacRTH37vT1n+Vn2cRRAUvVIJU0yBCINhFrE1oOwXikNWl0CGdOpXOQrZQCHSIdBNKBhFpB4mbLYbUQININUglHCi9GuyBrXf3ulQxljTJFx78hvf5/Hi/30OYChFZe73e/aOjo0edTueeoijMYrGczc3NfYpEIjm73X6IiNo0g+ODLMvhYrH4slgsPjw+PrbLsgyqqoLBYACXywWxWOx0fX19e3l5+TUi/pyWwGAwuJvJZD7Pz88TY4wcDgc5nc5JORwOEgSBVldXfxcKhW0iso9ZAxHdzOVyL7LZ7GK32wWe52E2HMcBAEClUjGqqvrUZDINiOgVIo640Wi0WCqVkpIkTRovCs/zcHBwwO/u7j47OTl5AgDA1ev1pUajcfu/5PSjIUK5XL6Vz+c3icjFdbtdsd/v84h4Of1XoCgK7O/vR9vtdpxTVdWsaRpcVTCWtNttc7PZXOJsNlvPZDIBEV1LQESg6zrPeb3eL263e3gdga7r4PP5fomieMj5/f5KNBr9ajQarwQTEVgsFojH44eBQOADh4jfksnk21AopGuadqkAEWFlZeXH2tpaBhGlsVXIZrP5UChEjLFzWzguQRDI6XRSKpVSqtXqcyI6v3HD4fDOzs5OKRKJEGNsAgiCQIwx8ng8lE6n5Wq1uklENy6az7e3t/dmY2PjLBgMksfjIVEUKZFIjLa2tj62Wq3Hszf/8/lEZO50Og9qtVpKkqSA1Wr9Hg6H3y8sLLxDxNPZ/j/3TwrHkkvl1QAAAABJRU5ErkJggg==">typeform</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://app.bitly.com/" ADD_DATE="1626591560" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADBUlEQVQ4jW2TS2hcZRTH/+d83517cycziZMZ26aNJn2gYnei0oUSQQtS35pCwSYpBBFdKYgiJLSbLtx0Wyu1iSkNNYoobgqFZOkDiiBSYxYzDW2aNJOk87gzk+/O9x0XzkQJ/leH8+LP4fwILQnABDgAKA7v2+sp/Wzs6AAA0cBio1yb3/3d6r2dvdRKEAFSeDu7J606x4nUWHfAHqRVBaFkbEME54tR7eyh2ZW19gy1g5WTfYeTXuL7zlDt36zanwRyVZO7aa2wIzqkmN/qDvUzUaO5UDb29d7pWzdbs0D5RG8WHR0/a4WHa7Edy04WJvE/WhvpP5H01HTskKd6/Uh6ZrnIAGB8fyLp8/5So/lKdrIwWTm1OyejCADg6yGouUFoASg3VZgpG/NmOuCDxvMnAIBuD6d6Ujp3x1i5nJvKj22c6j+b8vRHpS37q47tse4rS5ttB3OD0M/No7k+MjDrKX45qkR9HHLPCyLwGfacAOQc7kfG3ch06COk5ClpOxiCGpyHCEAge0ETfD8MntcieMwCpcytpQUCBFOFz9ZH+0Ni/eSWoEazsDtvcTcyv6lOLUJ0UAPEBJgz83ACEE6DNvNIOCtQWj2xPjzwWpjgfbUtd71nOv8FAHTUEk3qBODgMQOLALrfG8o9SIDQaTgBxyRCmtW5rkB9KMDxTNq7sD48MA4ANsePMBGBJM/GRNcACCfCN/416Sx5jKaTP+837NOlKD4cNexdVvQ+AIjQMYG4QFWv8a6Ze6sgd9H31ZmVo7uSAABiBkGUk/HsV/lf9sws/VFvyg0BujZO9j4UKPogtnIp+WVxmQGQmPInRFQP94Y/yhAUQTw0ncRu6/e2J0U0III14eBbAGuemI/R+kQCIKsjfQdS2rteN/G7YN2VSSeublbi887JJWa86mv+NGBCxbi/Ksa81Hfl9mJ7wbY+B7x3XgQXvWxCZVLfPBDoo7EVKAaqxlWcuIurG9WJR38oVrZh+g/ORP+gt413dbT/uBF6nIju2GZjLnd5eWEnzn8DtThg6YwFpxcAAAAASUVORK5CYII=">Bitly</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://keywordtool.io/youtube" ADD_DATE="1626604959" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABUElEQVQ4jZWSzyvDYRzHX59nEwvbKJqDm6Qk7TAnLG7+ABeHXZGQ5CKl5EqWornJ1R/gQmEXuVCiUOJAmtowPzL7fhyMtB/23fv0PM/7R5/3p0ewgfHe3SegGgiGd4J7fzlTzDzRE23NmJGUXGTzRQMsSU9njodL+9132byzsFVlrGd/BnTg+8p8PpVkP/grt9qbGsu6GnzOkBgCGdVKeDs4ki8gp0LqQ6fOLj+WowdvgavrTzRlFmu6ukcLzZlTweB4dpkKy43HeGI+3h9cfbcn8TBwY6sCwLAnUfMpEhJkDnADp2/lrx0b974XWwE/GPQm2xVrD3ALOhdJeGZzJ/4HkUTVMegsgCJD/aijpAAAh+o6YAH13tpkS8kBq4/euKquARsGtJi+ZPwuMda50GyJVWHHZNS810Unz+HPP0gb3QRpsxOQFj0C/GBjB8XwBdH/ZIVvQt7YAAAAAElFTkSuQmCC">Keey World Tools</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.youareunique.tech/" ADD_DATE="1628788569" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACz0lEQVQ4jY2TTWgcZRjHf+87M7uzmc1sdqeJbtuV0ohavxBiKEHECoWaUlGE1ZMHm5NILx5EPA34BQWJIJRe1ItFTC6SQ22UxtBoESwqaGulSUm0wZTMzmZ2sjv7NfN6yIcN5NDf8Xne98/D//k/cAcurnRBsgsK5ARogNitvwMX9N/ZW/qH/Y/doDT4OZi7CQKIIxzRZ5ntujycOvTA0NF8IxgrrAfDVqNaMNv1pgA9hfAS1JUY9UWX6twg1WBLSLz+/JkXnbg9ll+7fcgJK4V8vfqTXatM2etrV7Od9tupuLmSRmkxPGKjPekTL6eQfyqSmw2Sc9I0m9MNkfoqyjqlam/h+gs3J48/682cXc/kSg0r95BAz3cQ50ssDAd03zQQ+2KSYVBTNVpXtg05dez00/sTLpihd8m6df1UUTO+zTaCX/ONsHWrXnltlPn2yyA/YnAV4pP3sfg1bBpRpqx9Mv3W3ErSfa6esQ8nxfsv+1l7qZW2zDCV++A48y0BapwDr+qIpWv4l7ZMlACTTMYurj5+8Z25qq694fcW7MjoWa7a/fNeb88TF50T+26ALUV6LCK+fIDcQQGJArG9cxc3Bgjt/lc8M/vjutXX81s78146iryOKc6u9T3zXSTTfxhojkP0FxuBUJsCrgTU6Mnzo35u4Kkolan/a+9ZKBTvLS4cfPzBppl1AjPzc83qPdw0rOl+vHArcNqGwPeAkP1Hh84lKplJxV2LuDNkqe5IplW/p6sZ82mhHUMlF4ZqP5wGxCwoAB1XSVyRDHxYecmX8XAChlTJYh/ib6EbmbamP1qseemw03z/xMo3n21GWW0HCYAzKm/oyS999TA34C/XC2HAnkZQcWr+glPzZrylxS8/vTruKxDijs8bEwAYjHR0+e5qLKdWb0cBe0diPhbJzvtwpcDdUfufCaXt3nBluTxxdxdIWWmg7uLhTv4DttMjYqH3CusAAAAASUVORK5CYII=">your Unique</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://my.sparrowhost.in/clientarea.php?action=productdetails&id=3419" ADD_DATE="1656841391">sparro whost</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://cloud.sparrowhost.net:2083/" ADD_DATE="1656841413" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEklEQVQ4jZ2TT0iUURTFf/e9b3JEQ0iGoKCSNjKzChcFYeMiqFWr3IZLywKjTdCmdlkSBGHiJtomtW3RRuzPpkUJMhLRIqiBHKOMcnS+773TYkbFKIXu4vE43Hfu4b5zjB1K4BjAbQFniAZxp7c7ERu0jn81GEjne/swfwKjQZTDsUbQK5tcmN9CoEE800QDbWBDh/J0dLyjPTlAFpuUUSA1SOO43a9cs/VJf1VxqdiP3CxSipEDA9eUR85BIx1NDKQh8uwuDYP1I7VjOMQnxFcSE6lyKI4ReY5cH86ukoU25C6bRnq7MfeYfFImtPS0efjRmENUyfvTrIVfpN96bKq6BKCR0lNy7hRpVAJ2g11JmXoQxgpQJSig+ABzo5gBvLap6pIGC53s7e4BikgCFhPMnSXEiFEl0xlc7T0fulJ6kjLODhKjAXO6WHqI2QAxdgFdJA7S9EmCKGBmRM3ZZOVNc301NFI8SZs36ukyZnvY5c9hQDTwDlazl9TT6wnwmaj9OCvrQvEKxlvW6vOYHUMSZotELZDFF2RKcayShlm+1O7ZdO1ngnSXxI/TCJ14N940bfttYB9mEbRgE5WbgrE/v1tgjonKHVbDLcwycg6CMrACOX8YjyfyrNW/kQcN4lsu1KYTh4tHyHGc6JYhfAR/FMUa2fdHNlVd2c5wG8H4n9pUsB7bAqKEmGnebZqwHcFv6S3p4ZUXwYkAAAAASUVORK5CYII=">Cloud sparro whost</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.zaubacorp.com/" ADD_DATE="1655921123" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB8ElEQVQ4jaWTz2sTQRTHP5MmUiqx24LVVGICFpWiEH+BKIQcRQ9JK3Fxvew9/4PGoyf3IILgYb2sWaE1HsTrUoogVBLBHsQfrCYQUUo2hWC17Y6HZkOSpqe+07w33++HeTPzYJ8h9txZbGYBVLsAgG1br4bJwoOFfD4/HolEFAsMwAMQAoWFZpVt6XFrstWrDw0CRkYi3lr0mAEkEZhCUAaSilc3CAtvUN8PWGgmpKQa3vqXQmIicb6cuFJtRY84m+EDKaCqaVpiOGCxmUXgNmKzSrT9G/VFocz8xIeVi3dSb67fddrRKS/WWFV8H1dVtexuwJZ0AG8pXVDq0xdygKmqtx/Ga5UMoES9n0Z66bEiJZ7vbzrdloOFGqpdG91o0Zg+O/rj+Lnc+qFYOV6v6OvjR0//Onzy8tgfj5mvy6xc0pzldGED+8En6HlGVdVeCkEOcD/PZIz35/PFM6uvFYCPszfKCAzABJJIytycmOtrwbatOSGEDnDqmxMYgkarSNxOpgdmGPgHz/OPdCAJuEi6fcZrlczVt0+LO5nUS/BsKAAwER2jTzIotscmXaAIIETI7TX0A+YnuuSpJ+/uHWyv7Yi2/7qlknWfITF0FjRNS/i+NEFkOsd2QiGhW5b1fVC7axZ62A4E97D3zO07/gO5r6lw2cLZaAAAAABJRU5ErkJggg==">company database Zauba Corp</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://novoresume.com/?noRedirect=true" ADD_DATE="1631447574" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACsElEQVQ4jX2TT2gdZRTFz7nfNzPvTV8CKRXBiApKXWjd1KLGjXZRxLy6qXYpuhPBdq0ojCK4E3Rd0CKiCC1YU0EQ7E4saNGSogUF/1C6SFOavMybmTffPS6KkRTxt7lndTlc7g/4F24nifhveMsE9618vJBn5Zsqyv2p46kfDx16FwBQVYaq8ls3LJ6+OA5l+ao37WrH9EbMiuLlbGH3K91GAyt3LT341TdLXYeXLh9+cg2SgXQAhITF098thsBPSI7iwm1Lfn3tLzNht7qu965r02RzZsPBkZjHc3vPnDsA0lHJUFUEqRiL16wsR15Pau/aZIZhhDAVGUBKUtRka8a8fMCK+PXelW+PXR7zJADc+fnFhxj4ok9rJ5gBMjncSBrcCSkQoIjobZOQ0jyL4sN7z55/DwCj9a/brtEA7r0IUqIJtO1rkr8BTAyBAKHk7m2TQjk6dt/ZC2eU0nlvp+vM8xySgwQCZAREM4iYc/cvQVyzwSCQcADmk42eg+HYsvx5TetPAfzBEHPJgQSaAModBG8PRbFfbfeZz2Y/2WguUkoCgm9t9ozZPsuKo962FwBdpUWA/zQgIfcOwB2hHD6nfvaR1/WKzc1HAC7RvJkmEXtoHMt9CndAfrMBJJA0dV3HYrjHAg/8/PTjz2hr630bDAODGSCo7wUgALhHEGAGEyCRAiCYxTTZbEC8BUC/LD963NvmBYRww4pBoNALEIQepFyQUTKSSdLMhqUppQ8uPXVw9eYry34dP3Kyr+uD6PtVG81lFHoADlqiMZiMDfMshrIsfVrf2Ih6GwBRVUJFh2S/H3nsh0azJ9K0PmWj+YxFUTDLo8vX48zSCb92/W7k5f3e9+/8ubx8Zad/dFSVXTn88BqAZ+/64tJxxPxoWr/6/WRmJ/5X1R3sVHw7/w12g16MdluYkAAAAABJRU5ErkJggg==">Noveresume</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://coursewikia.com/tutorials/" ADD_DATE="1631821014" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACjUlEQVQ4jU2Sy0uUURyG3985Z775HMbbjI4plZZJN8o72SIrMbuYEBqS1iaX/QlBUK3aG7irFiUlKUhZaReFLiQ5Xoqo0NAyxNt4bxxnvnN+LTTq3T8vz+IhNDKRZiOhYVmRHZ7vKa5ZBpachJ+RzPmYD2AQAAIAQIEMa5ngWri0rak6rS3bHvHKFRAcqJehsjND7YYlwP8BWmR6Rltzawp9A9CAABisYbmc4oQ+W0TCjhfE+Dtly/CtPQ2FvoFYVCly7k3Ut01XT0cDAWva7woxCPTvHoA6HXhc5u9xosIlnasjV64NX8e6MAMEITURMxOIBQwAddzXyQQpzPBK9o3Ry2BAgoQRMNoo40iIDU9jJAC1xR4HgwS+hncJoUtTeyLGDi4VaRb5if2JavHH6tbR8HavaznfOxiDUqGYn4nAnGZNJamFln21iWpx57tva8bdmV+R6gk1/zp3Pthck9F6J6/h2WSF6Jk/Ioi1FkWJwdq0lv7lAtuOZrgnsuLGUt0hGGTZY1B0MuUpCHcnL1BS09zzgvIif7+OCW3Eso5Pdi90zRzziPCB5F4wjUc2Vw52vC48xKDc3iGxEE2u+3T/7exBKY1lOX57Xhg+kdpVGnjzZXl3cLEgw5qoT2sOeGZfzJVPraYrknrkd05Z8NXZwMNTKU9y4obz4gfZkBDcPX90zbhLfL0XM24z49FMFQwTGpnIMAtoAPBYKx9L9mfHj4JQ1dfukeEHBXUwCK0m733/eSqySYHALEAslWMgwo63Y6ayjLuXYvEfFosD1vRAKE9K3RM6PBVJhzCEmwYAmEAMBgBBWpHWLDUrkFHkENhhFzMBUBudrAdMANiwirICAGKwcNjayIgYTH8AAeItxlUqbr8AAAAASUVORK5CYII=">free course</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://devcourseweb.com/tutorials/" ADD_DATE="1631821094" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB30lEQVQ4jY2Sz2pTURDGf3POuecQyI3XmxCIG7WkixYUXOtOutGVoBtB3PoILnwFfQHBxxA36saFgghCV3WjKBUpRrCJNMn546In4aa16sAw8DEz3zd/4LjJf2IA6D+B7XZ7I8Z4F7hsrd0LIXz/W5MVFufcPRHZBxKQlFK7ZVle+VcxAL1e74zW+lsungFTIBljXgI94DRQN9002NNkMjkfQujmBibHGELYAK4DE0BlfGUkAeh0OutKqZ9ABAIwB4JS6i0n7EvlmADquv6slNpeKMpRaa3fAKGqqnNlWfb6/f5Wu93eXDI3mqWiKC5575+llLq5+HVVVTcPDg5uiciXVqv1PoSwNp/P91NKVxeyFozEGL9aa3UIYQuYVVV1ZzQabTvnrIhoY0yttd6dzWan8pIPra7rjnPumjHmoYjs5D14rfUrY8x9a+2F4XDoBoPB2ZTSUrkAtFqt29Pp9EGMcaMxUmrmiEhSSj0PITwGfmVcKMuyq5T6mAvmi81nBRHwGYs5Z+kiMjYikhrXMI3E2FCgFkqMMS+8948Ak1I6VGmtvaG1fgr8OMrSYPuktX5ird1s/sHKNznn1r33F0VkzXvfAWJRFHtKqQ9FUbwbj8d7jZOv2DHgBJOjpL8BzVCmtO4zvPQAAAAASUVORK5CYII=">free course 2</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://extrassl.actalis.it/portal/uapub/freemail?lang=en" ADD_DATE="1655617307">Email Lisence</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Icon & Hacking & Font</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://www.flaticon.com/uicons" ADD_DATE="1630124575" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACuklEQVQ4jX2STWhVVxSF1z7nvHvvezdN/AmCQqBQQURIIgRLdRJQkwdOOurEQbEdqo1GBDUoN04KbVFMUqoiZi7iRNCkQimlkEHR16SgYIaBVqFEX3Lfuz/nnL0dmOIPqd94rY/NZtHQXz/2GKIvWbhGgAiD8A4CAbgShxWX2rsz/Ud/P/DnxO4wNJ9nBV03SviO6ewYEO8BIojnd+vM0GEFdrVd+sDfAAADuhR0dw3y3y+GDUADZbPlAAgBZOLIQL0+QkRApEAVA3Z86kH/yOJQY+KwicPB/J/lUgifUn1+8oauhV9zVrCAPAg/kXAGgQGRh1Jg59KVtv8h7FrRke9ukNGfKK3IZcVN4z0uUG4PkVZbdFDRLrOP7/d+cw3rUJ+fOms6ou2cF8wlP2em8wQA9YXJk6ajesm1ChHhFgkmhcQGnTVdruR//Fsu3Ouq9W4LmRoQ6dJxpFyajc70Hr+sIKBmaq/aNH+iQyMEiisb4rPhxs4LRGpMiaw+HLhuKyUSHQUbyWjYNH/STO1VCEhhPKG5vaMZsx8DoCDi3ctWxoV15Yt04n7f8V/2L0x9pgJ12LUKT1opZj82t3c0w3hCa+8GgSDDjSs/VzqqB11WCgEpG7tjdueJZ/WFyXs6jobhhVyWP5jtHxn6r6MAAONr41H6DDtfAiIUmKrYYB+IRAi/Eili5wqQPvN257UgASNJ1GzfsUds7bSpRUpYjCL5tnf++3hJL1927WJJnL8123fsEZJEIQG/EQBAkggA8o4uuna+DPZs4mj7VoQjj3clpVj/VWkxDoDWsgDw3u4TKCTgemPitOmsfufahYOg2c5p9297ji6ttw31noAhoGa3m/JpvqijwISbPtpcDfkcBAS5pT8sWGOuZzRzjCNwftGutp4S6DYIAnzB6+X/l4+nk2hwOok+lHkFwGBfVNlrN1AAAAAASUVORK5CYII=">Uicons: +2000 Free icons, SVG and icon font. Awesome icons for any project</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.social-searcher.com/" ADD_DATE="1630127788" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABDUlEQVQ4jWNU6prOQApgIkk1AwMDCxpfmo8339rEXFZKhp+XgYHhycfPTz5+Pvn42aRjZ7BoMJeVWhbhd+LRs6gVm55++izNxxuso55vbWIhJwXXgOKkLk9HBgaGsu37n376zMDA8PTT50nHzjz5+BmnkyDOQAP2s5Yic5kFXX2QnSTDz5toogdhSPPxfvr56/PPX8gaGNGCtcvTMVhHHVnkxKNncEdi0QC3SpqPV4afN1hHXYaf98SjZ9ErN2HxAxycfPwMwph07Mzd0gwLOSm4FEoo3S3NuFuaIc2H8DqEfeLRM+wakN0DUQ0JaHgkoPshSFsd4mh4NJ98/Gzi0TNwH+P0NB5AcuIjWQMAOgNj1Nm6AHQAAAAASUVORK5CYII=">Social Searcher - Free Social Media Search Engine</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://fonts.google.com/" ADD_DATE="1631265072" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrUlEQVQ4jaWTT2hcZRTFf/d+3/szmcykMTMa0ypoweKilaqBrrSIC6UudeFO0oUoIgilFSt0iouCRSIqpSh07cKFu+pCwZ1KKzRQTGvBamSqZppJ0smbP++977pIQqFQKPhb3cWFczicA4CBssUdt3A3WqYAHkAgAPL3vn1jsrCwsf0jYMwt1hqNKQDCWEP0zys2Hm7k11sygC215YP7n157fvYn34z/+OfgU6cvv0IMcOmTR17eOx0tUehSVNpf0fWfl3T18lLeePzq9Dv/vgWgBh51Z6vezQZjqpFGRybbB16yC4w13co8MIH6Cfordev8VpeymDD8QxrHnzbfbr+gN2Zm4mA83CtCDvQQ8IV/cHSVY41a2NUbkqsQwsZNs1AEUwlWZENcUqrjWZ1ptzMROzfuNWokfrzTs9/dc4sjHXG0m1npxByhVKlMCGIqwUArCWHkAvygAPd/f/Hd9bx4dSUv3nf1jUPR7s6cGmkwMwGxUJpWHzCdng3Bg7h+J+9V5pbnZ77x24nf992FLwFWv+C9WsyBLKMAcUYQEcFsZKP0a8rmedn1xFeRr67tXH7sxUQBWpthuo2P2B/DiWxIiaBmtlWHhOHwcxn2P1NsDdG87tLmB08201MKcKK12YWyysdRRJyX2zVARJxY6FLk36IyaSJeQgnFrUEJ8qYaqLQIa2d5o1rhmf6AXAScYmCD0vwIETMsYGCbtmxbQgXC6hkedcqpvAARIgWXRGivrJ9eLia7aTIlPjqkQddFFFGn6muxw+yMN5BbjuNpjOv16apCJcZlA348/uvCh2Np9lpZROtJctgsjDDOg1i/WB+e+8VdOSkA3Xl27IgpSJFOBxo7Ea7RkxZhz9HF2k0g9PfI6BpJuvfwIN59qWy/fjG769Duidbt1f4v/gPJyi8X2oIhfQAAAABJRU5ErkJggg==">Browse Fonts - Google Fonts</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.fontshare.com/" ADD_DATE="1631265125" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAB00lEQVQ4jXWRTU4bURCEq3qehyjw3gwzthLEYeAOjhRuQE4UJIjIJmLnU3nnxKN4MCz8fiqLMexSi1YvutVfdVHSdtgul1/G3eicAwQQlERQFEjElEIIq9Wq73r+2Q7Bn/3d7ZQLCEkgMJWpISVYZa33+9dXXF9fbzYbSVLRf5UlbTa/r66u3G4ci1SkmKJJ+5fXmCKKAIAE6UOYVbRqJpXx+dk550gaWbvZMAxfb25KznVdQ0o5+xAeHn703TlJgDPnnARIAEjGeIiHw/39w3zep5RJwtg2vuRYuVqSAEcKBABJAOtZfXl5cXbm8aZcso6AguQAStQbcSl5vV533byUDMDIft6TBgCgSCeAECGAZnze729vv52cfBBKSrkJzePPx65tJ2YKjlNOIACpeO+/393183nJmQCNTTiNOdZ2cvRwfDREAaJVtlgsuvPzdw/TJgAKlBxJEjZ5kFJMKR4kpZRBAKym24BIGF1KScAUcgFCCKRBAGASqCxAMElQjMk1IRhpNBEXnz/9enryp6cAZuYmpOqNzci2CdxuB+8/7nZjzsXMqqrKOR9TAQACkkSztmn2+xdKGoZhuVyO4+icy6WY2XFwgidjSm0Iq9Wq67p/C9411hWFVUIAAAAASUVORK5CYII=">Fontshare: Quality fonts. Free.</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.dafont.com/" ADD_DATE="1631265160" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABQUlEQVQ4jYWSv4rCQBCHfzP5e4lR4RBsjmssBOEEBbEWO1tr38TCJ/ABrHwI3+J6EfEaMdhcIYLGyyZrEUlWWLmpltn5dr7ZXfqGPt4nk8poFK3X4WwGKfM8vQK+wtCs1SDlz3h8Wq1kkmR5U1v91moZQUCmCYBcF0T51hPgNBpep+N1u+XhkD3v4WDbeoB9/3OxcJtNo1zOqwGw46gA5yu/3/fabateZ8/7XS7j4/FRUSoRswYwq9X0egUQHw7hdHrb7f7pkEZRdhUyjpPTKT2ftTMUgIxjKQQAmCa5bnq5FIASCiAEkgQAMbNtF8ArJSnEowMzKQC/UkKSZAAxk2WpSqQf+nbLlMBMjvM0g76DEGkUZQCAv/0+SxtBAOUdlK9BlJ1kVCof8zlZVqGkBaLtNtps/F6PDCMYDKBErgfgDlakdTpWXykKAAAAAElFTkSuQmCC">DaFont - Download fonts</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <a href="https://www.youtube.com/redirect?redir_token=8_XMYgmOtMvrSvXhMUf0Zn4VwXR8MTU4Njk2NTkzN0AxNTg2ODc5NTM3&q=https%3A%2F%2Fapkuncle.com%2Fwp-           content%2Fdownloads%2FBlackmart-Alpha-V1.1.4-apkuncle.com.apk&event=video_description&v=lzvb0buQmMA">Blackmart( app store)</a>
+                <div class="link-animation"></div>
+            </li>
+        
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>color combinations & Illustration</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://colors.muz.li/" ADD_DATE="1631264432" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACpElEQVQ4ja1TTWicVRQ95773fd9kJslXosWYgEkU/KkgFMQstP6AICX+LIQs3CjUle5EN66ycqO4Ke5cdB0o0kjorv4vKl0ViWIxnaq1FczoJO3MZOa9e1xMhLjWs7sX7jn3cu4hxiAAAcBLX20uW8RrRj7jKS0BgMV41aXPPOHMuRMrFw/P8KDAsfX18sF7p99j0psWQyMPR5C7AIBmDGUBT3mgyI9+2N59d2t1dThmWVuzp59aKO9ozq7HZvOFUbfrAjOhIPBAQMJBr6hrS73epzu9m6uff3FtSAB4+dvz7xfN5tuDTnffjAVJugQCIAmXxjtT8oxRY6auRr3eB2cfO/kOX7y4+Wh0fi33YJL1c6bDVTFYliNJqCygCOY+phBoTrOcTE/E4DxlRaxyfz/tK9l9k7Wen1vi74OevvnjBuqixM+9W+gMB2yEiAiY5G5VWYVROhUeev2VD+E+YxAHKfHxo/Pa+qtjExZ48u4FZhdP3DnH+YkWd9NQ3eGQhRk0Pqs2pbTo2eECW2Wlc9e3eXl3R8/OLuDj7e9wpGzgWm8PC61pRRpFSCQ9O5TSouEQKCHJ8db9x3H+xlVMxhKtEHHl1p/YSyNsdTuYCPEfdQCAMca2BYMR2hsN+dzsomYbTW7+1sarS8dw9tcrePLoPH7c7fCe1qRGOZOQLAQwxrYBvGBFQTmcJFoh8kz7e5Uh6JPrP+mX/m1d7u7ogekZ1bFikgDRrYgEeOFfNhKyfkoMRhWiDTxjIkTs5wwL5i6xMpMO2WgbyyuXGHi6qqeiZ42aIaq0SJipWZQSqSpGFQyszOSOUVVPRQae3lheuRSwtmZ3zcUvG2w8UkxNPpz3BxKQCVHjwBy8MjIBK4/URe73N3Zu33yjvXTc/4cw/cc4/w1aN4C2tkN9JQAAAABJRU5ErkJggg==">Color Palette Generator - Create Beautiful Color Schemes</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://coolors.co/" ADD_DATE="1631264512" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACOklEQVQ4jZ2Tu2tUYRTEf+fbu5tsstGoEV+JIiqoEARRRBFCUNBGKwt7i2hhITa2NoJ/QRSjRSxFUMHKIsEEQQIqpLAQoxg0yiZKQh6be+93xsJdiK9CB04z58xpZgYASUYdS5l60qhBxfyTlEueSx4/plGDmdTTuFupaRCVPFe/PJUkLUZpYs79/bzXGUlZpjyqvyq1NXT249N0JarjYcHonZyTXx/GH3/1MBUwymL7FtOZ9fjlHSG0BwuCIYPTwIIB5FH9hcD5kTcsn73npU+zQKdgFVAG1ggEe3eiB12FbFfRmiLcSMwu2FKmo80JQ+9m4NBVQrXVrdhmylpioKX+YCNqLkFtvdPdEjSyteCrghGhNxSMPiC59khUp7FSxcgWZce6gu70Bt08ErSvBaulkCTG+KLs+ZIwSAz6UEw/zy/LN1zyaOfcuRL95N1cMY+SXFLUTOp+eCwV46l3T2Rezb2xnEwIYcOHaTQ9j6nww5m+g8gKWC0XwYy1RdmT/YnGa7C7CdoDQSCDTYE/wMxAP3MBKBoE+5V3/7K1AzoqyKIAcWvMDUFzYpQK4ltmOv4itwNvc3omIzOO1/VTIVPxSWsJO9WNa9EoVYzHr00nHqDBt9LtCXRsLNqzb6akBK8WxMua3MAiDP/FxqCsnAda/2Bj2Xi6LYmrGzaWizYanYHt60juXyTb3AbZrBuJiab6ALVl2NMcdL8zSduDJQ4DRbPRepRpjeLR/0R5ZZna/qdMv1XzX+v8HXujroOEYhUpAAAAAElFTkSuQmCC">coolors -The super fast color schemes generator!</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.instagram.com/mr.pugo/" ADD_DATE="1631264816" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADMUlEQVQ4jTXT32uXVRzA8fc5zznP832+v9Z3bstScoIyt0BIDVp1MSTIC8OLGildFKkYBHXThV4I3nQhXUgFEawIKvBCKEYWWBmBuqnREqnMiASLzdy+c9v31/PjnOfTTb3+h5fiP3uO3BjXWo9T5Ic1apt1jth5YueJciHOwaZys5aqqaDrZo/OPj4DoEDUs5M/nQhCeyxA2aLbIUwTKt5Rdp6SKyjlBZETSmKIbZlCxInkJ1+5vPu4OjRx8TFt1KXA5ToyOY9MDLFpa41ypLEIgQjaC0XPs3Jjhfnz84gzEISS4Z8w9bz3ZMlpbXSL/ccfpVGHxR/n4a5DFwVaFEopAi2M7tvAlqceYO7oDKZAJbhJU2X1kElzdu7dyMB98PXBz4h6jjBNCUNFICDtnPX7d/DX7SbDz29nePf9LHxxmziKXjc1spEwX2PTtjGal2/R12lRLSk2vriToadHAViavoaxBVkzpzV7i8bDDZY//w0VKq3rvkPDd4lDMN0OtWSFzQe2s2HfGIvvnKX57lkePLADlWWsnZ7BisOGEBUpYZFiGtKiHNyjFKRg2vT3NxnaO8bSqdO4C3+AMyzhGXztGdqfXCLwOVp7LAkiFjNYu0O1vEQc9aDcom/gDoFxlCtrBP0LFN0SNtgMIlhJ0Xg0HqsSCiLMQOMfSkUTa3uoSkKlvoD/4Sv6Xn2Jbul9JLdUjkzSPnOBIO2ilaDEE5CjVIbpayxj/TJGtdB1BUMduPoREvaovvwCFIr0/DTu3PeEtZggDpAkQ+NAOUxUWbsZ2+6IWrqG2fUcXDUoWUOuvEd+4UOkbfArGhM1KIbWE49vZeXTK2gFIr4w8brkg1otfCtb+g4V7MEe/BiZn4MsQVIPPSFIA6zUqY7uIl9cpffNHHFUo41/25h+c9HXS4WtWi2/nkI9NIHesAWURTyQeVQnQ93rkn07TfvLX9DFOjK8UKgzSgTlzk2eMP19x6hWLHmOOA+5Q3opstZDFju4vxP8bQ2Lg6zeHXKtTu3kyM9vHlf/d86vvzFuKvE4qnQYrbaRZUiSQLuNNFvIQpfkz+xm+rudai00Zodnp2YA/gUFtoG/2k5vbgAAAABJRU5ErkJggg==">@mr.pugo) • Instagram photos and videos</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://ui8.net/" ADD_DATE="1631264887" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACC0lEQVQ4jaWSP2hTURTGv3ty0yavvKR/KCgNdougKB0DEhBUEBw0AcFJKA5mULE4SCYzuLpoxdHNSXQKdHEoOiUgqVFJOhgMkSBq05e8xOa9e+9xqK1JQEPxt917+M75zncvcFByORo8itE6M8eNMSvMfEwIsUZEj4UQbeQ+TCxZM/c6vkxpIX5aAe/px7sLq2JAOGeMWQFwk4gie/fGmE1myi09aJyR0YVriUN92CGJ9TrB3WrekcwsAFw3xmSJ6MioIyKKb3l4FgpZ8DpfkTodxayl8b7Zx7bhW9IY85CIbhDRqHaf745Gu9fHbEggGNg1bQU0YCgimfnquNwWZwI4Oi+x8cXD840epiYITX8awUDntWDmbQBRACgUCmg0Gkin08jn87BtG/V6HRcvnEdtJ4rbL7dQ/QFMWVOY5N5boXYukzHG7E2q1Wool8sAgGq1ikqlgmKxiG+tNk4eDuLF8jxWU5F3Qd0963Z7p8rZxU9y0Kpt23BdFwDgOA5isRiklBBid+/pMOHS8VA9fcJ6NRDyn/QSiQQ8z0Mmk4HjOEgmkwiHw5ByaM7kUEBKKYcH6Ha7XCqV2HVdZmZutVqslNqvG2PWhhporR/xwbgy1ICZBTNntNaf/6VSSr3xff/cX9+amee01ve11kMr+b6/yczLv3/seJg5rrV+opRa11pnmTkyXvUf/AKEGGhI6FO/iAAAAABJRU5ErkJggg==">UI Design Resources, UI Kits, Wireframes, Icons and More - UI8</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.ls.graphics/" ADD_DATE="1631264998" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABbElEQVQ4jZ2TsWoCQRCGv9k7wSpXCj6BjajXXUpjncpGxFfwAXwDC7Gx9zECQizTaCH4AHKF2KqkuZjspMjeaeQkwYWB3Znv352dnRXOwwDWzR+BJ+DBrY/AK/CWw2YOgBB4ARJAryxxsfBKk02e3Ump4HRlqf/o2F+b1IB3B3wAVkQyc+laF1PH1lKxALMLsV4INGedMjOnJQI+U0hErDHG1ut1rVar2ul0dLlc6mAwuMzEOk3kAy3Acw5PVVFV6Xa7lEolGo0G0+mU1Wol7mSAL8AHWj4QACoiqqpUKhXp9/sUi0V2ux3WWoIgYD6fIyl0vlqQVfHHD0mSEMcx2+2WdrvNZDKh1+tRLpcz5nL4wMEVQwA2m40Oh0NpNpssFgv2+z2FQgHf93GZoqopf8gtoud5djwe63q91jiOdTQaaRq7LuLNZzTG2CiKNAzDP58xt5FuWG4j3WxlY8zJGPOvVr77M2V34M7v/A3ZQdZPPqErqQAAAABJRU5ErkJggg==">Free and premium tools for graphic designers | Lstore Graphics</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Idea for pictures</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://www.pinterest.com/" ADD_DATE="1631265196" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADXElEQVQ4jU3TXWhbdRzG8ef3P0mbl2Zp2qWza/qWtR3SiW6gYEOpLdSxTsduKkMqKAreKDgFKw7EG8WqWEVQCt65djp34RQHm90Y6sWsitMhKCqb6zknS5rTnjRtmuTk/B+vVva9/zx3jwAAARGA4KRRHAsdxD83pirQE7qwFgMAI5koNVKdQ1/PyfilynnIF/62ud312dnmQt/YvBMZ1K4xQBvdtNBFC1200UVXDdCJ7tOFvrH567OzzbedEJDCzEwT3j+7GLtVeMBhVQNlLYgYEo1BlILeLIN63QcaVauEVemu5I944cj4zunpDYCnjVzf6HxFBmiiu2ojrd1nT9D77U/Nuq81Sf+mrddf/4DZ2D3aRKpakb3MpUfnwdOGuCNT4/Wlqxe8rfU6gwGj+eSHEn5sApWvL6Jy/jJEBI2HxhCaeAi1K1ex+uhTZGHFb4i0BAL33/sw8qnMmaL0awtJr3j8TU2Sa1MvchlNNNHOZcRpooXF42+QJMsfn9IWdnlF1a/zqcwZ5FMZN4sunZW0X79hcuvCD1zGDpbe/YTevzeZ33eIpuymhTRr1/6iv7HJ3I77fBsdOp/KuMp33JgPCKJNYnR3oPrVIgLRFKIvPY1AuhNGTwogAamj/sffUNEIpC0hBEU7bixA3xdAgGoNqNao2lqFPoBaDbrmwVv6HYIGgALV3gaQ1O4GCAUAUMbORMmAovbWUP78nESfewLS2AB6Pmrf/wI/b4HwYCSTCB4YRO3na6KdFRpQVK3NpQCUuhiBcXQTQX/z1XcMlEpoGDogEg1DRUOABCABQey9E1BNEZTfmiNZ1lGJG1VgEc7w4wcLoUFmkfZspPUyIlx/+W1NknU7x/p1k/X8Kkmy+NosLXToLHq9QmiQzsjUeKD1u6OLt3rtzxL/WcccYU0hEQwO7ReurdN5cBLhY49AImFsffmteL/+REjYS8BoKKbaFnZdPnIJAGR1ejq+0j60tIU9tNDr+1bOq5xd1CZaaaJFm2jWFnZ7FtJ+Bf1cac9cWZmZiRGQ7TO5r3yUcFLDC058v2bO4erhZ2giqe3gXtrYQ1f66UQGdaFvbH51bi6OO9teIlVx8vnD9VPffJrvGSnawQGdDd3t5zozbrFzeKE4+uQEOGncaf4HPADP53dliLcAAAAASUVORK5CYII=">Pinterest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://in.pinterest.com/homefeed/" ADD_DATE="1631265233" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADXElEQVQ4jU3TXWhbdRzG8ef3P0mbl2Zp2qWza/qWtR3SiW6gYEOpLdSxTsduKkMqKAreKDgFKw7EG8WqWEVQCt65djp34RQHm90Y6sWsitMhKCqb6zknS5rTnjRtmuTk/B+vVva9/zx3jwAAARGA4KRRHAsdxD83pirQE7qwFgMAI5koNVKdQ1/PyfilynnIF/62ud312dnmQt/YvBMZ1K4xQBvdtNBFC1200UVXDdCJ7tOFvrH567OzzbedEJDCzEwT3j+7GLtVeMBhVQNlLYgYEo1BlILeLIN63QcaVauEVemu5I944cj4zunpDYCnjVzf6HxFBmiiu2ojrd1nT9D77U/Nuq81Sf+mrddf/4DZ2D3aRKpakb3MpUfnwdOGuCNT4/Wlqxe8rfU6gwGj+eSHEn5sApWvL6Jy/jJEBI2HxhCaeAi1K1ex+uhTZGHFb4i0BAL33/sw8qnMmaL0awtJr3j8TU2Sa1MvchlNNNHOZcRpooXF42+QJMsfn9IWdnlF1a/zqcwZ5FMZN4sunZW0X79hcuvCD1zGDpbe/YTevzeZ33eIpuymhTRr1/6iv7HJ3I77fBsdOp/KuMp33JgPCKJNYnR3oPrVIgLRFKIvPY1AuhNGTwogAamj/sffUNEIpC0hBEU7bixA3xdAgGoNqNao2lqFPoBaDbrmwVv6HYIGgALV3gaQ1O4GCAUAUMbORMmAovbWUP78nESfewLS2AB6Pmrf/wI/b4HwYCSTCB4YRO3na6KdFRpQVK3NpQCUuhiBcXQTQX/z1XcMlEpoGDogEg1DRUOABCABQey9E1BNEZTfmiNZ1lGJG1VgEc7w4wcLoUFmkfZspPUyIlx/+W1NknU7x/p1k/X8Kkmy+NosLXToLHq9QmiQzsjUeKD1u6OLt3rtzxL/WcccYU0hEQwO7ReurdN5cBLhY49AImFsffmteL/+REjYS8BoKKbaFnZdPnIJAGR1ejq+0j60tIU9tNDr+1bOq5xd1CZaaaJFm2jWFnZ7FtJ+Bf1cac9cWZmZiRGQ7TO5r3yUcFLDC058v2bO4erhZ2giqe3gXtrYQ1f66UQGdaFvbH51bi6OO9teIlVx8vnD9VPffJrvGSnawQGdDd3t5zozbrFzeKE4+uQEOGncaf4HPADP53dliLcAAAAASUVORK5CYII=">(38) Pinterest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.designspiration.com/" ADD_DATE="1631265277" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABr0lEQVQ4jaWTQYoiQRBFX1oDgiIlhaggqCjOIXrR55iFBxC8QHsDd7Pp/fQpZjE3cOVOQVw1bnUjVVJlZf5ZdJZd3Tgw0AEfkswfkRE/IuDNDO/2CPwC9kDmsfd3jyVe2QeAGvAMZMYYlQEUyDynxqdIdeCPJ1ngCrgyKpXK1b/Jc+uACXyQn8AP/0MliqJgPB7TarWIoogsy0jTNPDOV+A7EAK/AR6A3MPW63VtNhuXZZnyPFee5zocDnp6enKlDAv+A8ALIGPMFXDD4dDleS5JOh6POp1OKmw2m5XLURRFL3iFXVHfaDSStVabzUbNZlONRkPL5VLWWq3XawVBUGThut3uHl+3jDEOcJPJRJK0Wq1u6rfbbaVpqvP5rDAMC2FljMkqn3t5z4IgwBiDcw7n3Ie3b8ArMJIkoGKtxVpLGIZ0u10ksVgsCIKA7XZLHMfGZ0Cn03m9K6K1VpIUx7GSJLmJOJ1O74r4oY21Wk3r9dolSaLL5aLL5aLdbqf5fP7PNsLbeApIi1kYDAau3++7Xq/nqtVq2Tn15+fC+UujXBb0tkxek/9eJvjCOv8FEPwk5f9AXLcAAAAASUVORK5CYII=">Designspiration - Design Inspiration</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://dribbble.com/" ADD_DATE="1631265304" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC3klEQVQ4jW2Ty4scVRTGf/fequp6dGW6Z7on8+iZzIwKmoAuFARBXGgWxrVLEQfRlQs3unHhfyAyARGSvyD/QHQjPogIkSwiWY2QmZ7Mq19T3dVV3X2r6rqQbnrEb3XgfOd8fB/nCP6DX57/6Low7IK4CWYTIBf5gcK6r4y488bfd/fn+WJaPGi87+Wl8jfAxzlI13P11VrNMcaQTiam3x0k42zo2ai9Sin+4saTe5PZgodrn/ipp+9LU7y0stHwR+nY73W7bG5dw3XdmdowjjlqHmlh5O9Vt3/zxpN7Ewkw9PWelPLFjRd2lsLwil+r13Ach7OT00v2LMtGKWXn0rwZ6YVvAcRvO7uvZSL7Y7OxnZZDP5iS0zTl8OkByytXqVQqXPR6tFttqotVPM/noNk0Tm6uWwjzqV/yD8uhvzWv5roufhDQPm/RbXdACFbWVgnDEIDA80SR5V9Zxpi3pS3r3U6XPM/JtGYymTAejzHGIISg5JZYbzQQYpY5YVim3em9Y+VCbOmRFv2sj5IS27YphyG1eh3P92i32kRRRDyIKYocKRVKSYSQFJletMjRq5urjh8E8w7Isox2q0V0EVEUBednZ9iOjSkMWZaRZRmgjCWhOUlH1/wgsKbDg8GA0+MTlFLU6jUGgxgpBI3NjZlAp90m6kSxNBY/9+Nhf9rodbscHz2jWq2y/dwO1cVFFhYWSJKEPM/nbmKIcuQjCfJ2nCbVNE3p9/u0zlusra9TW67PQiuHZYwxJEny7/BwyGg0QkrxpXxr/+4jhbhzfPRsdHZySn15mfBKeCkPpRSu65ImCVprTo9P8Dz/x1cff/enBBiI4DNd5I8zY4zrufwfXM8jHsQcPj0ARLO/VHsP5p7ph5c/CMpD57am+NAPAiphWdiOA8agtSa6iBiPx5R896dWot69tb83vrRgil+3d1+xbPm5gVu60EsAjlSRZbsPCpF//fpf3z+c5/8DCLtBoUbfWIUAAAAASUVORK5CYII=">Dribbble - Discover the World’s Top Designers &amp; Creative Professionals</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>Tips & future use</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://www.premiuminfo.org/" ADD_DATE="1632340373" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACLklEQVQ4jV2SMU8UURDH5z9vb12WSwQTwORQEMzlGinOlo6SlooO8SoCXwApPKRWKw1GCk79AGBDw4fwJJFcocd5kAsJbqJ37LL7ZizeSYjN5GXe/P8zmfnh4eQDVSUiIgKgqqrKzKSUZunA4GA+nz/vdHK5nKoC4OtqIuqnmAGwYQAvtrb2P++XSqVut8vM1lrPuV5rAFhr4ziGKnueYc4ya601xrhfTE9M0o3yy15vZGSkWCwS4fj420UUlR+XT77/iKLIaTw3saoSkCTJk+WnS8tLU9PTRFSv1w8PDxcWFjaebezv7Q0P3ZZMPGYWEWNMr9dbrlSeb1aJ6OjrERijY2OVSiUMwzRNiYiUmNHvkCRJoVBYWVlRkc3qZq1W8/zc7OxstVoNgoAZDAAQEffA1dVVqVQavTtW/1Lf2dnJsiyO44ODg2azCQAEAv6tVZSIRDUXBKr6u/vHqhjPsFXfeEEwACBNEsOsqkrETne913vj43Nzc6IqpIuLizMzj9rtdqPR8HM5N9L/d2Bj1tbWVldXAZTLZSLafvP29PQ0DEMRAeApKQAQkSoRRVF0dnY2Pz9PRO12+/32u9rubhAEzpSZ+x1ABCIRufh1sb6+/unDR6g2Go1WqxWGoaPGRc/RBiIGjDHN5km79fO805HM+r6fz+dF5CZs5s7QMIA0TQuFghX7+uWrJI7DYMC/5RtjRMSx2AcJwNT9CWZ26sskARAGgTpXdynmm/z/BdNGMbr7jv5yAAAAAElFTkSuQmCC">Tech Guide that Matters - PremiumInfo</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://googledrivelinks.com/" ADD_DATE="1632342027" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC8ElEQVQ4jYVT3YuUdRR+zvn93vednd3W0TZBY3NDE7TMbDapoGZbY6HbYNcoTBA/ukph8UqR6UO6qD8g6EbDPvBCKOmDMHaghUBXllUKlI2wlKWZwd1x1nnnfd/f75wu1snBm56rc/Gcj+c55xAeQPXl4R1iZR8TlVRpCAADuKmKadHs1PrK3HQ3nzrBWcCM7hp+n0CHI6beWBSqqissojwTYpFERc/E9fTohqtXFwHAKsAYAVep+GUhsOO3Myctr9ofWEpFSAFERGh6L/3GRkuaDYcFazuNLQGykO48sbbA47V2lvSwiRL1i83MnfbARVXxidI2YjrU8G5+uYHXNl6ebfwnIfk63NI8t3kGt/rCIO9t6mUu1Wz3o1NXrnVrnRsbe7zmc61X13xTP7j6Ml9fX9QKIMh+5o/1QqhLhza5emnn4j+jT20EgKmOvP+BheeXtMfrqr03zPKvS189NFn/Q8uwVIYbP6umNN88wMoFRiaqREKsChZDiDJ1lywIj/k2w+ah9oX6jAJUKa1Ur/2OgAP+KMj3PixOwUSwBKgANgdIo/kjAwq9t8xcFQE9MKIqFLoSQAHXbsEly0kaa0aE1KrS34Hx68AG53nD08AN7SRXAFeCfJ4lrQH1XgE4JnqF2Q4REamiSnqBP2mG4eR79R3yUzrY6Enj4sW3z/+J8ogFKoIypHui0ZPL10BmM7FBlrXeoYXv+7Yeufv8zKwMBAXrrE9ltu3cxG97vp3vTiwe1PyqQfmUI+xRn3oRf9vdjbcTADzxxcQHjxToeHInSzg0kWS+rkqnoP6SqE2MlU0k4Zv5xv5nbXVXO+hDLokbxyvHCidNuQweiHK//IX+J4P+aJvEmQfQF/SGLxLRuGG8YaJgDJquS/MVZwsaSm3wu2q2cLhWWav3TS+P2OKWNR8S0btkTY+k/p71KxfLoYU67zxan9Xww+TNCcRA1zd28MyZ158zhvaBtARgCCAC9BZIp52j03NvnZvq5v8L/v5u+stB9okAAAAASUVORK5CYII=">Google Drive Links - For Udemy Courses,Ebooks,Tutorials,Programming,Games,Novels,Songs</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.similarweb.com/" ADD_DATE="1635166906" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACqElEQVQ4jV2SUYjUZRTFf+d+3/8/M2WYZTk1WUYlskhByxqKhRHYw7ZFrPsYSkhUlFEWVBD4GBGiySJGRERvQSW9GYRptBUMGWTQS1svsriTQunuzPz/33d72BGj83zvPefcc8QKBDhjO1a1r1t9+8IPx38F8CM8T8nrJNoYvwGfcJZDOsLAwQTZriyvu3fqzs61a0+05HcD9N9jJw1mcdbjBGAzBW8zxtd+mHsE2UEG+E0TM+2i0fxK0taNqxe/BSjEFA0ymQFCZDLL1DTZRskJn2W9wA2gJM9aUdzlni/2lmJjZOsijpHRyKQwApcZ0mIDcNRBdsv9048iezJXw0qy689XayYAepf4iCV6NChxahwBwihYIhGZ5CiTZsH3yAzHM2ZKqdjvoHVv8HudmQYWKSnI1P95txNxMrsNaSs54VDkVCcL8aHO+PQ7AMULnLp8iZ1kztIijpQAGBUADxjoNneXQALzVCeL8dVbJ3a9e+AAtuplzrDMIww5TWPEK0RCiI46W3Yt494EXJLc3R1SCEXMqfqynf96uts92fOD3MA1nCIyxoCMYWRqw/1PydxdDiBJgpBTVVkspxZs7fHt2yfX6BUu9Ae8SB7lYgDMm+OnMRPy7COs3CDmejiwotw232++5aDWS5xkSJdAwBDwjdW1f+g5pRX5V21IkouY6zojnnh4x4YG4Fn8QpNExQDjAzv/0+dz7vmYxTJIqt09CcDdcVyGO1re+M+NaVSwSIuAc0zP8aMBdm7xwv5cDT6zWJayEBzJV1KJZmUw5U/f73arZ8YpDB6nx/cs8eZo5io649PPEsNesm8CLxF9d//4jnjute/m5vpplqeCeIyavdrH31d69T/MhPZ9eVOIfnNKeX7hzBd/APgMgQfZrH38DDBi938BGLwydtX32EQAAAAASUVORK5CYII=">website data</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://slack.com/intl/en-in/" ADD_DATE="1632342777">Where work happens | Slack</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.linkedin.com/messaging/compose/?connId=ruchika-jain-25a769168&midToken=AQGHjMsNTPMFPw&midSig=2ItN93_5gweFY1&trk=eml-email_accept_invite_single_01-hero-0-msg%7Ecta&trkEmail=eml-email_accept_invite_single_01-hero-0-msg%7Ecta-null-cs62nt%7Eku2irw8v%7E1u-null-neptune%2Fmessaging%2Ecompose" ADD_DATE="1632795666" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEUlEQVQ4jWNgoBAwMjAwMMi37N7z8P13Z1I0ygty7n1Y4+rCxMDAwADTbKsoxGCrKESUATA9TDABW0UhhkPZ1gyHsq2JNgTFAHIBC4xx+P47BrupR+FsZMDBwsTAy87C8ObrL4b/uAxgYGBgOJRtzcDAwMDAWLKZ4X+PL8PjD98ZNlx5wZBhKc/AyszE8OzjD4aoZecYDt59S5wXZAU4GXJtFBl+/P7H8PfffwYpfg6GyQE6KGoIhkH19hsMfDXbGTxmn2BgYGBg0JHgJc2AOScfMjAwMDCcePge4j1GRtIMePXlFwMDAwPDl19/scpTHI0UGwDxUPEm9OglDvT6MTIxMEAyBql69aX4dpNlKToAAJBGTCkAqusKAAAAAElFTkSuQmCC">Messaging | LinkedIn</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Source Codes</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="http://codelist.cc/" ADD_DATE="1632841398" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABQklEQVQ4jaVRMauCUBj9rk8ouYtEEOnkFkQIzv2DpKXm2vwPbm7tbs2tukeDOjnbHoTCvdIPuA7BvfcNvqUUIt6ZDpfvnPN95wJ8CfRxwjCM2WwGAEKILMs+W3qeJ6WUUjLGAED5diX1ZT+EJpMJxrhpmsfjIYToCv4SMMaHw4FSWtf17XajlFJKfd9HqO/I8XhcFIXsg+d5PTccj0fbtgGgruvNZuM4TpqmACCEcF333d6yLM5567FardpH0zTn8znGuNuSulwuFUUBgKZpLpdLKyCEEEL6W5pOpy17Pp+c85YHQaCqalVVSZK8C8qybJmu62EYns/n7Xa73+8BgDG2WCzeIwaDwfV67fbDGFuv190bfjjnURRpmjYajYbDIeecEBLH8W63y/McAAzDME2zLMv7/X46nV7SEEL9P/Uf/ALa7Mzwa48sHQAAAABJRU5ErkJggg==">Premium Scripts, Plugins &amp; Mobile</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://nulleb.com/?__cf_chl_managed_tk__=pmd_kLfWK_h0wqdEfNIqQ0ws2JCh72oDI2WvPaz8si27Gh4-1632841218-0-gqNtZGzNAuWjcnBszQjR" ADD_DATE="1632841401" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACEklEQVQ4jZWSPWtUURiEZ95z7t672Ww26ppsjGuCopgmCoopRUijYGls/CeCYCP+ANHSOqQWrBS7FIKIIBI1ikHzASYmm01y795zxiIf1k4zw8NUw/DKswX8jzxJAgAECLDDDICHkMBRx0PKg0BUHCEUUVGoOAroBTnSGwQUQQIqjlZGjQ4kIzVflIpSq+bGG0mIcsS540kjs16UhJG6H2skIcqunqrO3mnPzpyZalc398L960Nzd8fajaQ94Odmxh9Pt4yI0qPp4dmZMxPN1IZrvp5ao+rvTQ4a4YxpYs2qI+kdTzd85giiYuyruGa/96UkEDFeG+272My6PUkKAgRJZYAAiRGQFKIMIMiV7V6W2M3z/Xu9SBIkIRJmJPcBSBjpo0Tpw2q+lcdbFwZ+bvUAERIgHe0riRIkGUGQm3l4sdAZP5ZOnEwlEgRIglJexr1ShEAQtChFKfP28ktntxcGMyfIDFt5DEEnav5yK5scytqNiqI28+Cdwch6ap9/F/NLOzfO1gHVElvcyN/+2p1q157eHpWQJe798s7HtT37ul58W8+XO6URz99tLK7nP/4Ua93SGR++Xn3zvVNGRWl+qfvg1WoexEtPPlUTC0KMKoJqFTOyW8TEMQ+RYKvuDVjZLsuozJtPnBVhf1umCfMAQImjgNQbhJXtACgxJo5R8CCN/97r7CDw0FIHgAe3Jf4Cra0OoYpWWBkAAAAASUVORK5CYII=">NULLEB - PHP Scripts Nulled Premium Wordpress Plugins Mobile Download Free</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.wplocker.com/" ADD_DATE="1653905367" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAABnklEQVQ4jZVSvaryQBA9+2NQN0LwOdIJsRNEQUsLLe19ADs7H8DWt7AXbSysRBFFBBGtrKKSIv6EJLtfsR+5CN7inmqHnZlzzswAfwQBYJqmbdtxHBNCviYppSilu93O930AcBxHKSWlVL9AfzmOA4DrBgCiKGKMAZBSMsZ0EgBKqVKKMaZDnvByzpOH1pAolFIC0CEFwBgLgmC1WgVB4Lruer2WUl4ul+Vyud1u3+83pfTDU6VSmc1mABaLRavVAnA4HEqlktaz2Wy0E+2Bag/ZbBbAdDqdTCac89FotN/vq9Vq4iQB1RIzmQznfDAYlMtl27b7/b5t27VaDYBhGF8KhBBRFLmu2+v1crnc8/lst9uWZQGYz+fj8fh4PKZSqZ8C0zSFEI1Go1AoWJYlhGg2m3o43W63Xq8Ph0MhxH8Wvbjr9fp4PJRSvu97nqeUer1et9vN87z7/S6lLBaLH4vL5/NSyjAM9QDCMDQMI51O6wRCiJSSEML17DQVY0wvG4BW/HF2hDDGOIDT6dTpdOI4/np5Sa/z+axd/Q3/APuc+4QoUoWNAAAAAElFTkSuQmCC">WPLOCKER.COM - GPL LICENSED WORDPRESS THEMES &amp; PLUGINS</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://uxthemes.com/" ADD_DATE="1653905374">UX Themes – Themes and Tools for WordPress with an Incredible User Experience</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.jojo-themes.net/en/" ADD_DATE="1653905384" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADSUlEQVQ4jW2TS2hcdRjFz/e/d+Zmnp2ZzCOZJJOXpLbVSG3xEbVSkbpyISqixQdV3ASV+liILq6Ij7owZCcI1YVIM22oumhJoRKkELRWaKpW67Qxbepkxs577p25r//nxqIGz/IcOPwW5wAblH80r3Rfe26x/coTezdmDNBGjwCA9YmkVbt3qmf2468AoPTMkZfTocA8nrxYs44Zz2rOCoNW5+jdhaIOXejQ5fUCAQCuGNhm2YPvFx45OSVfmP4yPfbG9lNXj+2qvmcuaHXnw7Vw/0w9lFvivZk7dOhS13XxH4K/Aany9NzhhK/2MPryuLg8ASd4Oz7bt9lZjSe5X5r+3Or51aWPLjz1+df6NwATQKwAQGv/9LY3d55WL3dS90dZ21JY0ZzKWoYXpm/jH4ZTSrjTVZpC837JbklcSg4/li6mzpSu3lcAmFQGqCLV4PpaYvKPleo9ReERGX1qascmcT4bwm5FRTUaw8mqrVzrsmOPjgTjd+48OPndQ9uXQWXxFnRKzs6evlxQd0V9/oGeqPBuGfUJERXQ/EG8uDlHqhbDcjsEr8pq6krZjvdls3z3jucBQNWhyzz2B7RNYk9gyC8TEIrfdBiGhMEhIkEwmy7SxTbG7Q7CrY4ItBzpxBO7AbyjAgDi0RRF1YxHLFyb2SYBzbBAZZcBINkwkCtVMOA5HKk3hd9gMj1OA1BVAAi4EVNRhEWgIAnioPTgeRK99RYxM0UbBg+tV9HnORRpmrLHEtSwPAuAFADwYOvVikrigk8o7HOlvBQPY3Y0R0apCQIQ63SRKdWQqbSRaZiyv27DZzq/AvCEDl0AYNOS+YhL4mwmJl+/6QaK3TWCfVNZgAh2oYzBZgeZVodHGw7QNumcU5sDAGURiwwA49qeH8d75ANuIj60bFn2SKNNwxEffX/4HJpLv/OgK3mi6Xo+1+/P2+Uvjp7R3wZA15dIAHj+5pmxrdno0SuZ3smzdgfqnw0MupIHiChtAkVPwSdcOXFQKz+OpZkqACj/ftrW8kItVbn10BSR1WvYWb+LILpCXjNt+1vX/elT2fzgSGzhJZw6ZPzPFwAGE4EYAA7gQEQbC9+4TjLyW5hr88bxn1E4bvE/2AwAfwGMBIIIbsZA0AAAAABJRU5ErkJggg==">JOJOThemes – Download Free WordPress Themes &amp; Scripts</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container">
+        <h2>Cracks & Panding</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://getintopc.com/" ADD_DATE="1635709279" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB2ElEQVQ4jZWSS2tTQRiGn29mcjGVWGwtjVrFWKmXgFpEwbox6MpVUXAhbl24KoIL/4GrrrpQ3An+guJlUYUshIJCtQERb6hpu0hqiUltNJ4z4yJyTk5PNv12M/M+73w3KRQKl0TkFqDYWljn3Iz5Dxe3CAMgIsr0+nkgazk95pEftvT3OUSg2YJPK5qX7wz19RAx3WDSOK4V/1A84aF7FHTmsM/lc22m7mVobKiogdGOO1dbjI1YAN5XFHMLCSq1jjA/bJk45vG9qgI4YjA50Q7gZ68TPJxLAhIIKzVNqZxAcJGsFIASx8WTfwGo1YVHL6Jwd7hN9wYgt9OxfVvnYuGzxrdR0f4hn0w6PHs+fFzWoUE6FabVbMV/vn6hzdF9fnCurws3Z/rCEhq/QmjXDsfmePtFUyob1ppxcwVQ+ylU653HU4c8shkbEc3OJ7n/OB1MJGYAwux8EoBMGm5f+c1A1sbFPfoajPH5G0M+53P+uMfB3ZbpGxuUv2pWfigEOJDzOTISN+3aROHB0xQfljWTZ9sM9TvGR33GR8PmWdtZsCevkhEDr9uktJigtGjYO2jZM2hJJTpjW2sovlUVrXakDmtE5K5zLpbN0qpmaVXHi+6CnXPT/wDylJ0w0BjhXAAAAABJRU5ErkJggg==">get intopc</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://filecr.com/en/?id=94351098240" ADD_DATE="1635790486" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJUlEQVQ4jZWRO2tUURSFv33uuWfunYcTUgRBCFiMRRRtRAubiFZipUw6G0srBUEEIdNpLyKIvyCDlY9KopUkaXzFERGSPxDMJM7zPs62mChxFEYXHA5sWB97ryWM6db60xOZUHNI4hGBHAgY/X8oseMTl8uD8kz1TNrtgzEgiiCAAh4QVBURIe0Pkf3mxU9Ls8aX3ueBiVP8yIuCjAHABzYwPs3WDUB9qR4AdEzxejwzPWWdLbhiVHCl2I2/sBi5MHJRVK243OtjC9BsHVW0KfJFVna2th8JeT9LVTRDjNlbz4jiFUVVFZsOk+95nD/5WzD/JUFVENGbrWfnXRReSZJBaj3WiIpXADV49S4uVbLdwcM37bevjsxflG02fFMWcouIAoRwI6qUL2gXrIBBUfW/MlSvIMH912cb2bwumkdy0o82ABpfXxwYJn5DnZ3OfaLGI4H4UV1K7sqxHe72lu8eu3SOUav68wQDELbT0yJS1jwbAEPwA/X0UO0q2kO157x8AKizZPZnYAHebQ6XD9X8wTaQDru+ZLtSoRK6PFKAQfbNH046HYCmLOS/AxSZ/WhqBRsUrdHMBqUQ4u17xy9v/EsL5nbr+ak4jNaMkbWCN6ulqeqqCeKrADQaZoIfI2jNxVEZTw5qTK5BPNAVgPrcnEwCWMRfMzaQILTOFEKSdq9b7Q83AZqtlk4EGOVOZ2unGhSCzGdJaGBr9+X6570T/CTADy3E99fjPKFPAAAAAElFTkSuQmCC">FileCR - THE BIGGEST SOFTWARE STORE</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://wpfusion.com/documentation/#integrations" ADD_DATE="1651390951" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVQ4jY2TPYxNURSFv3XOvfeNN0/emJgQIiQkFCqikGhEQ0RJ/FSimBr1JBKFmoZGJBKJKFQyjYSKCgkVHcWMIH7HM++6956leD9DQZzmnJ39c9bae20BvDnRmW3HeL5M3gKyAAvxHydbPNGdbeVcqxMIGUnAP7L9hzdzYK5Jcp1SAyFiGwANg2xIzcBWGNzDEIBga2OVDCgygi0JSbZlSVPnbqlzbE6pKoXCwAdCUiY8ho0Hb9cVpHpgFm1W7T5MuXotNBWpv4TyCRQiYLIVajYKclUSZjbTPX6BMDmFJWhqsvXbWDs3T7P0ia83zuH+dxQi2eh3gxQCrkpaO/bS3ncM27gqISsIq6dp7dxP/fktijkpJRQiYdQoSbhp8M8Glz3c1Hy+OsvCqS6pXObny0csnl7Ph/O7SD++oCz/jYKEU4M6a8inNxBnNkOIxKl15Ou2IoybGpc9yIoBfxukUYFAWv7KmjOX6Rw4jYeouicv0j15cdikwRgVMsBjNWRjCnlB/8k9/P0jccN2Vu06xPKLB1Svn6Nigv7T+ZX525YkbA8LJELRpv9snt79u3QOHqW95wjLj++wdPc6sRtQzAitNjitjH2MQMJOhNYkmsmo372m9/Am9cIr4szkIDE1kJpht0dQJC2cmvJYBqNidYWrEuUFyooRdCOEhUlNEYPq5PdjIf0hxqxAeQts7LSyX8ZgZ1LMZcrGl8JfN85puHm/K9UOgigt9iqf3XT725Vfwz0PLI1UQQwAAAAASUVORK5CYII=">Documentation | WP Fusion</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://nulleb.com/farmart-organic-grocery-marketplace-wordpress-theme-gpl" ADD_DATE="1652797970" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACEklEQVQ4jZWSPWtUURiEZ95z7t672Ww26ppsjGuCopgmCoopRUijYGls/CeCYCP+ANHSOqQWrBS7FIKIIBI1ikHzASYmm01y795zxiIf1k4zw8NUw/DKswX8jzxJAgAECLDDDICHkMBRx0PKg0BUHCEUUVGoOAroBTnSGwQUQQIqjlZGjQ4kIzVflIpSq+bGG0mIcsS540kjs16UhJG6H2skIcqunqrO3mnPzpyZalc398L960Nzd8fajaQ94Odmxh9Pt4yI0qPp4dmZMxPN1IZrvp5ao+rvTQ4a4YxpYs2qI+kdTzd85giiYuyruGa/96UkEDFeG+272My6PUkKAgRJZYAAiRGQFKIMIMiV7V6W2M3z/Xu9SBIkIRJmJPcBSBjpo0Tpw2q+lcdbFwZ+bvUAERIgHe0riRIkGUGQm3l4sdAZP5ZOnEwlEgRIglJexr1ShEAQtChFKfP28ktntxcGMyfIDFt5DEEnav5yK5scytqNiqI28+Cdwch6ap9/F/NLOzfO1gHVElvcyN/+2p1q157eHpWQJe798s7HtT37ul58W8+XO6URz99tLK7nP/4Ua93SGR++Xn3zvVNGRWl+qfvg1WoexEtPPlUTC0KMKoJqFTOyW8TEMQ+RYKvuDVjZLsuozJtPnBVhf1umCfMAQImjgNQbhJXtACgxJo5R8CCN/97r7CDw0FIHgAe3Jf4Cra0OoYpWWBkAAAAASUVORK5CYII=">shopping website theme 01</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Salon and Beauty</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://wp.xpeedstudio.com/beautypressv2/home-v3/" ADD_DATE="1654327518">Beautypress Home 3 – Just another Beautypress site</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://wp.xpeedstudio.com/beautypressv2/" ADD_DATE="1654327551">Beautypress – Beautypress</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://preview.themeforest.net/item/beauty-hair-salon-nail-spa-fashion-wp-theme/full_screen_preview/14458185?_ga=2.41441701.689060796.1654221223-1349852010.1633023339" ADD_DATE="1654327553" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Beauty - Hair Salon &amp; Spa WordPress Theme Preview - ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://salon-booking.gainhq.com/" ADD_DATE="1654327556" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADGElEQVQ4jX2TT2xUVRjFz3f/vHlvOjO22KYBbcSasBgaokatLRCaYCExEgnJREw0EVNMxICCErfGDQtkNLqQIGrdsGjstqE4AWNqSzFQ44JY3RQlpcGkHYT59+693+eiLKoLz+4sTvLLyTmEVREAAYAdxyvbRWQEioZIZIOAhAiLDLpIHmd/KO+cXpuh+wbF0liu87HuEwo8AiAWZkAYgICUARkL9s6B8PmNpRvvL4weaAKABoSKhzbnutZ3jlsbvyzsDJGGsHcAPEABEC/BO4iIifNbC3HSHzY8/u3f188HA5B05r47YWyyy7fqEMJ1sCsz88/CtinakfGKHAC4pgvcarMmN9H76BPlm6A3aeDY5GBkzEVSJhL4y656Z+/06X238T969p3zT8Zx/L33rWETaX1QGZthdvWm84dnT++73f9upZhofVQI7QADhGpI5eRU+bnfnj5a6Y0ieVspJZr0GwaEIYIWYj83e2r3tS2vTrYlWn1jsvmnQloHoKGjLMB3tjxcGhv6a+XPxUe6Nw5A6YIo2qYgvB4QQOllAJLpaqwTcJ+rVV1wzUZwzYarVR0gfV3d7R0LoweapGhemEVxeEiJQDE7AvveYmks+qm89yaUOmeSvDU2SYxNEpPkLCl9bq5zeGnja1/HEvwmYUdCIENK32Lnekyc3byup+MVAF+teHfkAdQmiLkdACC88sfSwgRGiXuOX9hPymzi4IVI3zIQqdhs/nWf1n8NwBwA/PLR7hqA8f+2v/XYhee1jk6CvdfGGg7ukklD+FIF9xK3wsjMJ7vmnnmr8mA2r/d4DgUtIljdeIagBkHyIjgoFvGKQyt19IWZKcxc3lbtPzjVHs8WD43l4jYaN5m2HeRTEBFI7g9eBCGtM4u0bLYj4xt3P5v5eOcVWos4+F5lIGPttHeNlEiBAAWQCEQIxACsTQrapY2Je8t3S1fPvNBQq9EPFAC0RP/OHOZtko8IZAHSAAyRipTNxFA6uGbt03vL86WrZ/bUAZJ/EaxSTPZZbT6EYDuEOwCIkFoE5FIIcvbHU8NTa+/8D0QlfuvNzTbrAAAAAElFTkSuQmCC">Gain Salon Booking</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Bakery and cake</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="http://www.nicdarkthemes.com/themes/bakery/wp/demo/coffee-bar/" ADD_DATE="1654327798" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACGUlEQVQ4jQXBy24jRRQA0Puqqm674xAbBiKBkJDYzn/yB3wQfwArFghWMBFDYjt2d9V9cQ7+/NMvMryo88hmeWpNRrA69zi/nnE4j2R1dqyBO6zSJTAFESJ9N5VgMTBgzDRDRMYswCgSTAYgTDeOtbgWisa0TKOgVe6WsK/LD09eiFuhqblQFExhsYqrJmTObQIpuikiHr9dDsf55ddPUCsA+ohMQIQtjaywCq4Fe6U3H//13r7b0WnqHsv3j/RQlckKReXBuYFTJ7AmcthvFTem5ZvD4/Ph/Llfzh339fTxQwfwxl7IBENIYFerTBQkicj+xfPyeh5XCx52frkfv96VDzt927ISOACElMMixDiij5h38nCatvP4ajocj+32750tX/9irwwIoAQZ8o5hXReuc6Otwy1ieWo5/PXc2yR297slNwZIqAwIMipnpq4349JY3i2XmVSdGiPT++dNhZDZw9gZAKQTZJOMuK5j8/7PhZ6fTtSEJRDw7aY2MTu5agYhgmhh9izLBCK26h+X+6ffhgyoFmW4rN4mhBE81xTxzYSWxpZpqaM3MmRfe58TIT05cYL325DIpc1CvI4hQxABJMFtfLmXHw8P1+t2ENbNZibw/PP3F9OYqyjEJiEbgTK0xLKf/1a7XwZr5uXOI0SDNaGUiTiobrGpoNwIagIwwuMDaVwt58gyhd56DK+abQJWHJox0gr9D4T5WsdfOZcsAAAAAElFTkSuQmCC">Coffee DEMO – Bakery WordPress Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://www.nicdarkthemes.com/themes/bakery/wp/demo/bakery-shop/" ADD_DATE="1654327825" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACGUlEQVQ4jQXBy24jRRQA0Puqqm674xAbBiKBkJDYzn/yB3wQfwArFghWMBFDYjt2d9V9cQ7+/NMvMryo88hmeWpNRrA69zi/nnE4j2R1dqyBO6zSJTAFESJ9N5VgMTBgzDRDRMYswCgSTAYgTDeOtbgWisa0TKOgVe6WsK/LD09eiFuhqblQFExhsYqrJmTObQIpuikiHr9dDsf55ddPUCsA+ohMQIQtjaywCq4Fe6U3H//13r7b0WnqHsv3j/RQlckKReXBuYFTJ7AmcthvFTem5ZvD4/Ph/Llfzh339fTxQwfwxl7IBENIYFerTBQkicj+xfPyeh5XCx52frkfv96VDzt927ISOACElMMixDiij5h38nCatvP4ajocj+32750tX/9irwwIoAQZ8o5hXReuc6Otwy1ieWo5/PXc2yR297slNwZIqAwIMipnpq4349JY3i2XmVSdGiPT++dNhZDZw9gZAKQTZJOMuK5j8/7PhZ6fTtSEJRDw7aY2MTu5agYhgmhh9izLBCK26h+X+6ffhgyoFmW4rN4mhBE81xTxzYSWxpZpqaM3MmRfe58TIT05cYL325DIpc1CvI4hQxABJMFtfLmXHw8P1+t2ENbNZibw/PP3F9OYqyjEJiEbgTK0xLKf/1a7XwZr5uXOI0SDNaGUiTiobrGpoNwIagIwwuMDaVwt58gyhd56DK+abQJWHJox0gr9D4T5WsdfOZcsAAAAAElFTkSuQmCC">Shop DEMO – Bakery WordPress Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://www.nicdarkthemes.com/themes/bakery/wp/demo/chef-portfolio/" ADD_DATE="1654327828" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACHUlEQVQ4jQXBW27bRhQA0PucISnRsuUWjp3HVzabHXRB3UTykxQoEKCOY0llRM7MnXtzDv716e9oXQ1166PFH8NI1rCatP7/y5m2kAJiIL0zRBKRzkjAABAamlIwRxhn6RFdIDgkCVJwR/ZgEdrIK0MVgFH5JpuGJVx8jR0f37/xgT0jJoEkIBxCUiTMMRBGSRURAAblx7cfDvPNP5+/bhmUpWFgDXcPAGqZa6KrQEl4ZXtpy/hw63v9Re3w/k+5nUoCS9QyVaGNnDbFLYEcpprgim1+vN+/ufuxXf5bfvpAjx8/bGw2YM9SM1YliUGGNCAwO3Ci+f7uZb1co0Ypl9Pl6fYh3exsaejROQBC0rxjVrCwajnLdLfvCxzT8eFw/PV8SU14SFHCI3ojJKeF2qmtK4Ixd5allPuH4zQPp+U8HubVvTGZqgnToCEglrWBt20LEgBYMarSAo4M8348f39dwsZBPQKDPEiuDDKKeXst21ptX9Ixbnw3aYKL28mrTdpMvFXqwJKkKkHQNE8oJWj798fzcvkJtaSOWIMKpsTVXabMyt6qyDRRUFTvtbqwC5/XkjF6D/LIrOvazGIvAqS1VWlMARgW1utu3j29e7LzMmvGrYqjGH7/8s2pj5pb80ogV0XuoRq8S2dr/fVFqj2fzrg1bD11wAQTZ2O1ay2JpBBQOAjpfuzFukVWBTVkxtrCIiXlCt2plWhCvwEYY1qFRzi22gAAAABJRU5ErkJggg==">Portfolio DEMO – Bakery WordPress Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://www.nicdarkthemes.com/themes/bakery/wp/demo/bakery/#" ADD_DATE="1654327831" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACGUlEQVQ4jQXBy24jRRQA0Puqqm674xAbBiKBkJDYzn/yB3wQfwArFghWMBFDYjt2d9V9cQ7+/NMvMryo88hmeWpNRrA69zi/nnE4j2R1dqyBO6zSJTAFESJ9N5VgMTBgzDRDRMYswCgSTAYgTDeOtbgWisa0TKOgVe6WsK/LD09eiFuhqblQFExhsYqrJmTObQIpuikiHr9dDsf55ddPUCsA+ohMQIQtjaywCq4Fe6U3H//13r7b0WnqHsv3j/RQlckKReXBuYFTJ7AmcthvFTem5ZvD4/Ph/Llfzh339fTxQwfwxl7IBENIYFerTBQkicj+xfPyeh5XCx52frkfv96VDzt927ISOACElMMixDiij5h38nCatvP4ajocj+32750tX/9irwwIoAQZ8o5hXReuc6Otwy1ieWo5/PXc2yR297slNwZIqAwIMipnpq4349JY3i2XmVSdGiPT++dNhZDZw9gZAKQTZJOMuK5j8/7PhZ6fTtSEJRDw7aY2MTu5agYhgmhh9izLBCK26h+X+6ffhgyoFmW4rN4mhBE81xTxzYSWxpZpqaM3MmRfe58TIT05cYL325DIpc1CvI4hQxABJMFtfLmXHw8P1+t2ENbNZibw/PP3F9OYqyjEJiEbgTK0xLKf/1a7XwZr5uXOI0SDNaGUiTiobrGpoNwIagIwwuMDaVwt58gyhd56DK+abQJWHJox0gr9D4T5WsdfOZcsAAAAAElFTkSuQmCC">Bakery DEMO – Bakery WordPress Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://www.nicdarkthemes.com/themes/bakery/wp/demo/pastry/" ADD_DATE="1654327835" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACGUlEQVQ4jQXBy24jRRQA0Puqqm674xAbBiKBkJDYzn/yB3wQfwArFghWMBFDYjt2d9V9cQ7+/NMvMryo88hmeWpNRrA69zi/nnE4j2R1dqyBO6zSJTAFESJ9N5VgMTBgzDRDRMYswCgSTAYgTDeOtbgWisa0TKOgVe6WsK/LD09eiFuhqblQFExhsYqrJmTObQIpuikiHr9dDsf55ddPUCsA+ohMQIQtjaywCq4Fe6U3H//13r7b0WnqHsv3j/RQlckKReXBuYFTJ7AmcthvFTem5ZvD4/Ph/Llfzh339fTxQwfwxl7IBENIYFerTBQkicj+xfPyeh5XCx52frkfv96VDzt927ISOACElMMixDiij5h38nCatvP4ajocj+32750tX/9irwwIoAQZ8o5hXReuc6Otwy1ieWo5/PXc2yR297slNwZIqAwIMipnpq4349JY3i2XmVSdGiPT++dNhZDZw9gZAKQTZJOMuK5j8/7PhZ6fTtSEJRDw7aY2MTu5agYhgmhh9izLBCK26h+X+6ffhgyoFmW4rN4mhBE81xTxzYSWxpZpqaM3MmRfe58TIT05cYL325DIpc1CvI4hQxABJMFtfLmXHw8P1+t2ENbNZibw/PP3F9OYqyjEJiEbgTK0xLKf/1a7XwZr5uXOI0SDNaGUiTiobrGpoNwIagIwwuMDaVwt58gyhd56DK+abQJWHJox0gr9D4T5WsdfOZcsAAAAAElFTkSuQmCC">Pastry DEMO – Bakery WordPress Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="http://preview.themeforest.net/item/sweet-cake-wp-theme-for-bakery-yogurt-chocolate-coffee-shop/full_screen_preview/5514731?_ga=2.103314823.689060796.1654221223-1349852010.1633023339" ADD_DATE="1654327860" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Cake Bakery - Pastry WP Preview - ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Legal services/h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://themeforest.net/item/justitia-multiskin-lawyer-legal-adviser-wordpress-theme/23198818" ADD_DATE="1654328291" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Justitia | Multiskin Lawyer &amp; Legal Adviser WordPress Theme by ThemeREX</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://justitia.themerex.net/" ADD_DATE="1654328311" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgUlEQVQ4jX3TzYuNYRgG8N85Z2pmMoyOnZSPGp9FQrFRYqUIGxo2VizkT2FB/gA7GysLWSjJ57Bg0kSmWfnOJJM4ZpyxeK+3Hm+Tp956up/ruu7r/ng7lj4rcAGXsQO7MIRptErgQIPYDuAkVuIinmIYZ/EDD4JZrAnl6WMbPuMVZhLv4Q3OoFOTlxLYg6NYjcc4Fyd9HMAslpWETnEfxTF8wqbYfYjTKfUOJvGxKVA3ZTe6+BbQ1ojeyn0M9xP7VQq0U9P2xP5gBFfyfgQvUsahiE1hXkEWQAffVWMcwXNcUo2xhw9xvDOcVlnCEDZGcAon8DJ2n+Ew3ifJAF6jXTZxFltS4yCe4FTuM1iTZINYiMA/U+jjLR5hXcRuYnPc/AxmNMmmmw7gN9bia0DH04d3OJj4KtzFHBabAsM4j/24oVrbcdX8e1ivWrDJunflJrYCWo6JWJ7HVdWGLuBevv/+C9dVq9xNbAwbEpsoyXXW8tSP+1RL08Ve3MY1fGng/QXMGl5EqvnYcgAAAABJRU5ErkJggg==">Justitia – Multiskin Lawyer Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://agency.justitia.themerex.net/" ADD_DATE="1654328315" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgElEQVQ4jXXSXYtNURgH8N8+hxgzQ3NoXMgUIWKSwnCpRHOlSa4UFy58E19BUeJ6voCLMZdDpEaK5kbeQkqdvM4Ljov1P7XPzjy1aq+11/Nf/5en7f+1FddxA4ezRvEK1To9oJV1Oc3Hc74ZV3Ey+6reUK+/OIhfeIq3OV/FB1xBG731AI5iGuN4GCajAZ5CF8P1hnbtewQX8An7w+IJLuXeHJ7hcxOgr+dIXv6G95Eygvs4gL14hG1YqQO0oukYfmMtjbexAefxIjLO4BCWcnfAg9Xsv2MIW7CIm2G3HPqVEitUrSDDa3RCcVFxfAh/cDdN3UjcnZ5W38QKX7FPGaKNAbmozMCb+LCipNKLrKo5VcP4gXPYqTh/QknlnZLMjgDO1xn0aw278CWMpvEcH2NgF2N4gJ/oNQE24RrOYhaPMYOX+T+hRLkU2QMpVGHQUcZ4WYnqDiajfw4Lud9rAlASuacY2cnZngCMR86Ab00TqyBP4RS247Ri2K14M1D/ADgoWDfKWXsbAAAAAElFTkSuQmCC">Justitia – Multiskin Lawyer Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://lawyer.justitia.themerex.net/" ADD_DATE="1654328320" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgElEQVQ4jXXSXYtNURgH8N8+hxgzQ3NoXMgUIWKSwnCpRHOlSa4UFy58E19BUeJ6voCLMZdDpEaK5kbeQkqdvM4Ljov1P7XPzjy1aq+11/Nf/5en7f+1FddxA4ezRvEK1To9oJV1Oc3Hc74ZV3Ey+6reUK+/OIhfeIq3OV/FB1xBG731AI5iGuN4GCajAZ5CF8P1hnbtewQX8An7w+IJLuXeHJ7hcxOgr+dIXv6G95Eygvs4gL14hG1YqQO0oukYfmMtjbexAefxIjLO4BCWcnfAg9Xsv2MIW7CIm2G3HPqVEitUrSDDa3RCcVFxfAh/cDdN3UjcnZ5W38QKX7FPGaKNAbmozMCb+LCipNKLrKo5VcP4gXPYqTh/QknlnZLMjgDO1xn0aw278CWMpvEcH2NgF2N4gJ/oNQE24RrOYhaPMYOX+T+hRLkU2QMpVGHQUcZ4WYnqDiajfw4Lud9rAlASuacY2cnZngCMR86Ab00TqyBP4RS247Ri2K14M1D/ADgoWDfKWXsbAAAAAElFTkSuQmCC">Justitia – Multiskin Lawyer Theme</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Cafe & Portfolio & Resume & Crazy18+</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="http://preview.themeforest.net/item/foodmood-cafe-delivery-wordpress-theme/full_screen_preview/24702614" ADD_DATE="1654359194" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Foodmood - Cafe &amp; Delivery WordPress Theme Preview - ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://preview.themeforest.net/item/sushico-sushi-and-asian-food-restaurant-wordpress-theme/full_screen_preview/22954591?_ga=2.266867337.689060796.1654221223-1349852010.1633023339" ADD_DATE="1654429634" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Sushico - Sushi and Asian Food Restaurant WordPress Theme Preview - ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://preview.themeforest.net/item/poco-fast-food-restaurant-wordpress-theme/full_screen_preview/28465454?_ga=2.262755723.689060796.1654221223-1349852010.1633023339" ADD_DATE="1654429695" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Poco - Fast Food Restaurant WordPress Theme Preview - ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://themeforest.net/item/ohio-creative-wordpress-theme/25193838" ADD_DATE="1657988221" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Ohio - Creative Portfolio &amp; Agency WordPress Theme by colabrio | ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://themeforest.net/item/siberia-portfolio-wordpress-theme/35392653?irgwc=1&clickid=Xta1MBSd0xyIWgm1QPRtbxHrUkD1rZW8DzG8Qk0&iradid=275988&irpid=2196878&iradtype=ONLINE_TRACKING_LINK&irmptype=mediapartner&mp_value1=&utm_campaign=af_impact_radius_2196878&utm_medium=affiliate&utm_source=impact_radius" ADD_DATE="1657988272" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Siberia - Portfolio WordPress Theme by MadSparrow | ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://themeforest.net/item/arter-cv-resume-wordpress-theme/28719764" ADD_DATE="1657989986" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACbklEQVQ4jQXByW4bRxAA0KrqZVZSFClSlhU4QoAgAXy2r774bPgnfPcHJrcA8QIDQWAFAmRHjGQZonaRM9Mz3VXdeQ8fHfwEGBGT1mRtTqS7dmibYVpQn8hUI4yeN9e1xQcnlI2xBgCABJAAEEABCEACiADJ0mTvAGPaqbR41wZxkfDtqyf1qKzrwhjDzM759UPXtt2XlXv390MHMJnu+mYzm5Tl9tZd16k3L59Oi7ygqILXHGplZ2W9uzV5/GSeQC5v2+fPXyxPljvzqSQRjJRSSBBSEqUgy4zNCFBCGDS7H/d3hiEdHh4GEZHknCuyXAftAGNEiZEBiFmatm827vZ++HzeJ4D75n5v/3GeZzllbe8099tEiCSUJEaQIQTnfGfW/er7KiYD4/lsujVx97dVnpEonec9QJTomRkRysIUeTabmkn8Ya3PTz8uL65XVuO4sG3jDGWaI6FEFLCgQKLnkCgaU9h6/O30Q8YQevbeO9RACoLoRMpkFtgMrkOtsrL0nDbOH51+vVgFRJhtT6eTbYXiY+8H1oGHKJSEU4pIWef645PTf45uVh46hsVid7zYbftm83BTmKqqRur1s7lRkGuCKIMfSNvF3v7Pvxw0WH+/uHIeIpKxmOeZUbbZdHpsybkuiCiVjYqyZfpveXZ8cvb+TNY9zHe2qqqS1HZda3TOMWrPClWpFDEosqPZYl4sfi0fXf7+72+klbaFiEhigIiIQKhjtUekq3pMtrzr+Oji7s9Pf/3x4cgjWFuSMhyCxBB4iEm7Pul1rK9WN1fXZ8vz1efjb5cNMBlQZVGbupggYt/3pINSiogE+H8IGW7TAzqWxgAAAABJRU5ErkJggg==">Arter - Resume WordPress Theme by bslthemes | ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://themeforest.net/item/myour-one-page-resume-wordpress-theme/27319073" ADD_DATE="1657990009" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACY0lEQVQ4jS2TzW4UVxBGz9SUr686rabVDA4aWSxIlC0r9llln33ehfdjgZBlIYKcEYysYTTqmFG71VzKRcGi5wW+n1P1LVbry1chIBKoCioJUWUaDZucJoOLIlWNhMF0pNJgMAipUD/sQCAQXABAApwgAvojhEK9ukSBNmcIRzUoYeg/f62pcuaXOiOqPHhgpTBNxjBMfLybeH09ctxtaboLdncjbV2Rm4pSCvri2Xq2jMDDCAnQDHVNrFb89jwQueXth57fn//B9dVbNCUigpQUEXECJ8IBUBFUIcJxL2gYl08bzGGz2WDugFDMUFW0SCEiQGaBCHB3psm4Hyb6ofB+Z5gHPo1cXKzIOZMlUdzRsPZEzuEELtx5sEIxGEvh0Ach0Kxa2qbFxoGsirigKZ0SxFwjAZqVlJRHbUezvqTnlu3Vjv54R05KnYRSDAlFIwQikAAC8FkMhCpXjKmiP/RzwOKYGSUlBAEPNERRVXDHraAKohm34DAa/+637A+GAk3b0jYNhOPuBIF62GwYTgCGYGb8t91zszlyOwaTQdd1NN2KYhPTOJAkk3PF8u+XT/5cLoIzgR/fv8/KiyXd445f10+4j3M+91/49rDgx2LJUoPz8zOWiyVfv35DKwmKGeGBiiIpUUL53B+52e64uimMBdq2JleZYKJMBZGEB6jHzMBFQBOaanLVoh1MumJ895oQIaVq/hOfryWSCEA9rxERcq7gLHN3b3y6HXhzfcObqw2jBSnViCpuhofh4YQbZoKOVPzfH+n7Hdtdz7uPe/ZDYD4vNFU1dd3ACS4SyGm1HsFPDxN5H/hZlmgAAAAASUVORK5CYII=">Myour - CV WordPress Theme by bslthemes | ThemeForest</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://crazyshit.com/" ADD_DATE="1631951521" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAAcklEQVQ4jWNgGHSAEc5qTBXNCRHCqmjR9o+FE15A2Eyk2kCBhvrZr8umvGRgYHj9/o+w+01h95tX7v3EpyHIga8rRxyrqVfu/sCiQV+VHavqsikv527+AOey4HGufeYDTEEsGkQFWd7uVEcWoW+wDkIAAJtvIo1dgAI8AAAAAElFTkSuQmCC">Making Memes Extreme - Crazy Shit</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <h2>Tools</h2>
+        <ul class="link-list">
+            <li class="link-item">
+                <DT><A HREF="https://www.smartnator.com/" ADD_DATE="1656842419" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAACEUlEQVQ4jY2SS2iTURCFz9x78+fZ/kailJaSVtRCiyAuFApS0YVIXYjWRwsqLqz1ha5UEFzUjRuXvqq4UUHBRV20CC4EN4KgqFREIqX1maQJCTVJc5P/3nHxRwQL0rMbOGcG5nzEzFiCmMGAIKj/mCyDABCYQQQCGKDGBWYsPiUEwMwgokwJlTo64wAzs+XFMswlbU9P2J0PbK5shx7yljGeKbACAILJ5b1sHlIAAIMEbN30Plnxq1B2obtTLfs2hBIxFXWgAHiZuW+HT8EYKAUCAJAI6lK1fXRv/f26yvTZ5PERd1as70lErAJQ//6Ta7WOp48gJGsNKQkwoM0TuP12rRcOb8y8PjEZd2ZxYwcJACIS9tLZ9IXL8DwRjYigQ6GgcAJ39jj3D4YvTl0bf36sL5Je04qVESsAsNaBZLstV2b6B2upaRCxMUJQLV/cNHp0JDSV6+w5152/vg3NQYjGTwltt666+3d9GTgyPz5JUi68evO1/4BuSzbfvanirmesb/SLIwBc1cuHDwW7VmcvXSmM3TPFYuLMsDu4GwCMISLfqACwtUSCnACAaF9vx7PH+mPKWZUUTTFYCyGgJKz1y1QApNvkZeZ+nDwPKeF55DgiGrYLmqtVSEkBVX33YdnQgB9ooFF+8VJ/+kxKNRjxF/sAeUa1tsS2byUl/waWrj+0GsOMRs3/iAECSelPvwHiKPeiIcHJSAAAAABJRU5ErkJggg==">@gmail generator</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://store.rg-adguard.net/" ADD_DATE="1656842562">free Microsoft store</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://bigspeak.ai/" ADD_DATE="1656851652" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABq0lEQVQ4jaWT30uTURyHn3P27t2I4TY3tzanWc3sKjD/gG4MhGBUIEIXXeRFRF2MLiT/gy6EulLqNghSxJjeCsObgRARhEizkDk2XVMXSNv7+vqebmqWayv1uTs/Ps+X8z3nwCkRvw8qd7r9pmEHWwV0lyz7Xud2GwTbwxceS8FTBc6WJRWWFGLcN/15oi7YvdnjQ5elf4YPsRzKDHtn8jsSQLgOAscIA2impQcBtL+t2rqbb1euUY1dAtvmTG4V78clhLXfsFcendiLXyWbfIHpD+NZXcaTfUctcp5s8iXfuy63FlQ74xQSD+icfcZe7wBbQ/fYGhqlGusjOvec/MgYZiDaXFBMPCSamqRwO0lo8RVtKxm8H9IEl6Yp3EoSmZ+ieON+c4HRHqXSP0gw/YZi4hHCMkFKStfv4vq6AUphdMRQ8jD2RxMjC1MYoXO0rWRQmoZ7cx1pVHGVctTO9uBZe08gk0JpOhg14Oc7qIx0XbSVc62hQy042KevY+7LJwmgDMe2gMY7ao6la2a53gP/2/WKrXjyXxKFJRHj3pn8Tv0IvzjJZzo1PwBRL5YxwzpxKQAAAABJRU5ErkJggg==">AI Text to Voice &amp; Text to Speech </A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://imglarger.com/" ADD_DATE="1656851668" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFklEQVQ4jXWSPW4UQRCFv+np2T+vwQhhaRNwQOrMiUXERRBwFkLuAAGn4BJOLHkDomVtozG7sr0/np/uegQzu94Av1ZJLXXXq1f1CknJJs7Pz9+v12v9L5bLpfI818XFxbfdHGaz2fbTbDbTUwghqCxLjcdjTSaTLUmyWCz081fB9K7iwFd8eHdEVdXM7xbsIsYIQP7nkk6WYWbfj4+PP3uA6W3F9LaEofEUnHOYGS9eHnKwv8dqtfx4dnb2wwMYIkjcFQGANHUMBz2cSyEBiw2xEBJkWUan22M8HjsPIIFJmNTKNRarB7IsIwGqqkZgJpyZOHi+b5n3xBjZKnAOsjRpK7WQEGACgWv4EwAnIBAagihRBGOdRCQhacuyuUq0b2AGMhGKgJdENFGbEdsPqEm4vr4i8ymSyPOc4XDIal3y+s0R3nsmk8kzr1bBJpoDBqRpik9ThsM9RqPRoypEDJHT09OvHkEwo45GMMPagTZKEnq9HnUdqarF1oUNQgRviGBNcjQhe+x3sDfg1eFh27e2bm1mU5QVXoK4U1USSeIY9PuUhZGmnrKseCgKzESMRtbp0u12cWmKwyCaWNdG4hrLEufo93v4doDRImbaRgiRGEWMwhvw6WTEsop0iMzn8x27ms3sdLqkaYdowuxx6czAT6e/v9R17RKDGriE1gO4v1+c3OT5W2vnYyZMiYlmOWZ/b67+ARbw6ivXuyeBAAAAAElFTkSuQmCC">AI Image Enlarger</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://www.magiceraser.io/" ADD_DATE="1656851680" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCklEQVQ4jaWTwW3CMBSGv+cJ2KBEXYBKMcox3aCdoLBBOkHTCSo2KBOUDeCMkZoFKmeDcg/J6yEBpSWiEL6brfc9/7aehQYfhrGIvCiMgAGwRTUzIlkF88C5jA4EwI/HD6h+dBXsqVRfbzeb9KiBj6IhVbVEdXiqQcN74Ny0vWEoy/hMGWDirf30UXSoNwJPZ8p7RpSl/wrDFEC8td/Uj3Y5qqnpLQOIJKa3XDMwQH5NB2Ng0dtWXZmqKGZ9ZXa7aT2J1r4ByQV6Ejg3g2aUAXJrlwrxf6YRmdys1/PD+pCoKB6Bzg/Tip225V8J9py4Th44Fxwl+rsROPcM3InqAtVtc/KKorjvCvUDSNVkngRiD+QAAAAASUVORK5CYII=">Magic Eraser - Remove items from photo</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://rytr.me/" ADD_DATE="1656851742" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDUlEQVQ4jaWSTUhUYRSGn3O/z3HUO+RPIVZTItKPaWJShEFqRpusFk2r2tS6dYvcGLRrEfSzCVy0CUoIadEqDEUKs1+y0rTECGf8Ka/TzOTcuXO/FkaUiBP1LM8578t7Dgf+E5VrIBKJNFVXVzfbtj0ejUYzy/vWauKOjo6w1vqy4zjXRKRhpRm9UtGYTqu7u0bPz8+fSyaTe6ampm6lUqlXOQ3MaPsGPNXOu+ctYTudnpwsO+553khl5dYL/f39iVUNzPDRfXhcR0ytkwqpj7Fivs5+IlLfZ5pr3u66eZoZacVZbiAA5s2JUnBvAwc9X9H3vo6HL6CupJdI4xBKTBoYBOnCl96Eq9wrfUdkci6U/ZnAPQO0gmF0Osyz8ULWMMShmmGU5YORfGA/mL1Y5rOytGv8DD7iafP6WBNwFkHNxMt4PBbGmfvAqcanlBQlwcjviQNAlfm1N2gsLgKbs16Wiekg6fgYLVVDbK+ILheviAZ2Y1ys5DANoQF2NmYJ6Ay5pUtYIOcXvqkRdzFFQCUoyFtEib+ULzcZTaDnRmah6sCXROm2inUhCvINIJD9Po7neMAW/vzYRUvMEy/LJ+PLgCYWLF9rTRQX2Bvv5JU0HEYhQCGGu8zeu4oVbMOYeoQiRGIYMxhU+hFFtfGuS52+mPvk47Ge8rY4tn0SJAZmE8gD2dHz8i9P8e/8AAJHyzZw81/XAAAAAElFTkSuQmCC">Content Generator  - Best AI Writer, Content Generator &amp; Writing Assistant</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://books.google.com/talktobooks/" ADD_DATE="1656851774" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABh0lEQVQ4ja2RvU4bURBGz8zu2hhBmhgQQW4CEY5ER8ULIPECPAVdXoGGgoq3oEmVxgUdSgpWQgRBgIiGAokECWGTXbx771B4Y8uYXyVfc2c0M0ffzIV/lAAYyOXi/KxzYe0lQ0GQn71txEcCJgC/F+fr3ukmMAMYZgVeOm9/LsBPDfxytRH/CAGcC2uCnwYqADL6BikPYa0m5nJ0eATzDrtp/YVNF247gK68J/xQZ2TlE1odJzv4Tn56QvRxDmu3Sb98JtuNe86AfoAZOjZOWJ9DogiCACmV0Mmpzu4T78hs5wlAd99iZwPzHrwvSn6gfRCA9IWiCqrFDfUZgAj++orbrQbWaiKVYdzFOXa4j5SHcJe/+uwPAlTJjw9prq+Cc0ipBAjWvu24UH0GAOBc141lWTfGrFeDXLD0PkCAPwbfEFqDtymaDDHYjcTt9QCKmCdBZEOTaL2apinvE3mQcFox4jiX4qtCAPGWGLLWvgk2al+3EwDixzw8oLOFhcrJ0kz5FSP/T3eFS5nAcxlhyQAAAABJRU5ErkJggg==">Talk to Books</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://github.com/slacka/WoeUSB" ADD_DATE="1656858545" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABeklEQVQ4jY3Tv2qVQRAF8PPdP7k3itoE7SOIKFZiDAZsfBJFfBDRQjBFGkFiJ/gKerGwsRAsvaKFFhYWgo3GxEA0P4vMhTUk4sDy7c6cMztzZr9kn2EFD/Eem7Xele/yfnxLnMP9Isxst9bMfhRmriX2MMLE/9ukOL1ZktUKvMANvMIGpnhT+9e4jmeFvTcjL2ELv7BevjFOYYgBFjBfsbXCbuLiIMnNJPPV0Tb6XddtJ9luJPqKDv0kO0n6SY4kuZVSeBc/cabRpWt06mZnLJaYu5im+oPPGB06pr9Fn1aCjV6SYcWOJhm3Nx9A7pKMkywk6ZIMe0k+JJHkRJLlruugf0ALg67rJFlJcrI4H4NHVc53fMLZf1RwDm/xu9peD5brcBuPa/8cSw3xAp7gW8V3apSXZoC1quI87uApTjcJFptXuFXf1VbVPl7WSK+1txdmjC9Nkom9f6fXggZ40ICON7Fj1feOvWc/zGGGK9XGqPGNcBdX9+P/AO1cPr7g2LjWAAAAAElFTkSuQmCC">slacka/WoeUSB: WoeUSB is a simple tool that enable you to create your own usb stick windows installer from an iso image or a real DVD. It is a fork of Congelli501&#39;s WinUSB.</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://youtubemultidownloader.net/playlists.html" ADD_DATE="1656858545">Youtube Multi Downloader Online Free</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://lavender.automation9914.workers.dev/" ADD_DATE="1656858545">lavender roms</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://wall.alphacoders.com/by_category.php?id=32&name=Video+Game+Wallpapers&filter=4K+Ultra+HD" ADD_DATE="1656858545" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jWNgoAYwrTv+37Tu+H9SxP/9+3eIgYGBgYlcS80bTtpSZAAMUNeAv3//dlNkgEXjqRKKDGBggIQwRQZQ7IKBMeBUowWK4L9//1b///8fa1jAxGF6GJEFzepPEGUrXDMjIyMjusmEDEHWDHcBuiGEALLFFAMA8Jo6g0fQL5gAAAAASUVORK5CYII=">17000+ 4K Ultra HD Video Game Wallpapers | Background Images</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://windd.info/themes/" ADD_DATE="1656858545">wallpapers</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://shradhanjali-besnu-photo-frame.web.app/shradhanjali_fram_selection" ADD_DATE="1656858545" ICON="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+UlEQVQ4jZ2Sv2tTURzFz73vvpf3atI8W/KzNTaZJGKHoAXFCo4iOAhuorOjo+Bg/oS6iFNHobODOgUqOIVIRcFitemPJE360oT8ePflvXuvS5EOJmLOej4czvfLASaolk7PKECbxNBJplswF7aWE+ZUAUqBnl8ZmbMFS58qoEgAd4Plozvy8lQBLwApJFnpO+yhAsg4jo0zKvaSLRa1myCwy82LSRxX6//VgFsqRbNiiWZFyjdF5p8NlAL58ipq136EMhR0IWirZS49Cwq6uKXdfZ9IxwOM6pEYr64+6zuEQAKnt1XWbXv7Y+gJAe6nMqNcLCEis7bOiJskUBpIuI5e1wtaTdqv7Rn7fEDf5S75azeeO4cMAJpf2aoYkeLV2z09l+cACLyBjeOdEIRHEVvUMH/BZVkq7UbVsDffRq84R/QAwEsGAPvbxoFpUOdXOZpsfbOh+TrUwILb5ZASaFTmQMMzkMYI7khCcjpsnWg/gdOZFr73mnp8ng9PjOuuY1rDEwblaehyDi58KE9Hp03RPtLhNJk77NO1Q4+ul3Y7gQYAJUA9vtYp++7cZ52SCKEkzjRi+YGAVICuMfhK9iTUppIoUiFePy3t8j9PPKuNB3ljr9G/d47RO2GdKqmI4oGgvUB9ilvRN48+bA3O8mMX9hdPTWCn128vY9bZ+PuGOAAAAABJRU5ErkJggg==">Shradhanjali and Besnu Photo Frame Maker</A>
+                    <div class="link-animation"></div>
+            </li>
+            <li class="link-item">
+                <DT><A HREF="https://crax.tube/" ADD_DATE="1656858545">CraxTube - Tutorials &amp; Guides | Crack, Spam, Card &amp; Hack</A>
+                    <div class="link-animation"></div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+
+    
+    <footer>
+        <p>&copy; 2023 YASH SOJITRA. All rights reserved by devloper YASH SOJITRA.</p>
+    </footer>
+<script>
+    // script.js
+const linkItems = document.querySelectorAll('.link-item');
+
+linkItems.forEach(item => {
+    item.addEventListener('mouseover', () => {
+        item.querySelector('.link-animation').style.animation = 'stretch 0.5s forwards';
+    });
+
+    item.addEventListener('mouseout', () => {
+        item.querySelector('.link-animation').style.animation = 'shrink 0.5s forwards';
+    });
+});
+
+</script></body>
+</html>
